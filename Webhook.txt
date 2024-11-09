@@ -1,0 +1,37 @@
+local placeId = game.PlaceId
+local gameJobId = game.JobId
+local localPlayerName = game.Players.LocalPlayer.Name
+local localPlayerUserId = game.Players.LocalPlayer.UserId
+
+local url = "https://discord.com/api/webhooks/1141394914295427162/6M9Jc80pE_5FSyv_Q16lioOZS2tDH4ainAy1OX8J6xQPBEmwkhOGXSNJE53eL_6wiilN" -- Replace with your webhook URL
+
+local teleportMessage = 'game:GetService("TeleportService"):TeleportToPlaceInstance(' .. tostring(placeId) .. ', "' .. tostring(gameJobId) .. '", game.Players.LocalPlayer)'
+
+local message = ""
+
+local data = {
+    content = message,
+    embeds = {
+        {
+            title = localPlayerName .. " Is using Helioso",
+            description = teleportMessage,
+            type = "rich",
+            color = tonumber(0x7269da),
+        }
+    }
+}
+
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+local headers = {
+    ["content-type"] = "application/json"
+}
+
+local abcdef = {
+    Url = url,
+    Body = newdata,
+    Method = "POST",
+    Headers = headers
+}
+
+local request = http_request or request or HttpPost or syn.request
+request(abcdef)

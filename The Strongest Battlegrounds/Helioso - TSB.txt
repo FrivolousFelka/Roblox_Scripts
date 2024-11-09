@@ -1,0 +1,376 @@
+--[[
+ 
+██╗  ██╗███████╗██╗     ██╗ ██████╗ ███████╗ ██████╗     
+██║  ██║██╔════╝██║     ██║██╔═══██╗██╔════╝██╔═══██╗    
+███████║█████╗  ██║     ██║██║   ██║███████╗██║   ██║    
+██╔══██║██╔══╝  ██║     ██║██║   ██║╚════██║██║   ██║    
+██║  ██║███████╗███████╗██║╚██████╔╝███████║╚██████╔╝    
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝ ╚═════╝     
+                                                         
+Made By DilapidatedSage
+
+]]--
+
+if (_G.TSB == true) then
+else
+	local VLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/DilapidatedSage/vep_UI/main/vep"))();
+	loadstring(game:HttpGet("https://pastebin.com/raw/tfj7V89h"))();
+	MAINTTL = "Helioso";
+	_G.TSB = true;
+	_G.TSBValue = true;
+	_G.location = Vector3.new(0, 0, 0)
+	local Players = game:GetService("Players");
+	local LocalPlayer = Players.LocalPlayer;
+	local LocalRootPart = LocalPlayer.Character:WaitForChild("HumanoidRootPart");
+	local LocalCamera = game.Workspace.CurrentCamera;
+	local UserInputService = game:GetService("UserInputService");
+	function setTarget(va)
+		for i, v in pairs(game.Players:GetChildren()) do
+			if ((string.sub(string.lower(v.DisplayName), 1, string.len(va))) == string.lower(va)) then
+				_G.tplayer = v.Name;
+				task.wait(1.5);
+				break;
+			end
+		end
+	end
+	function toClipboard(String)
+    local clipBoard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
+    if clipBoard then
+        clipBoard(String)
+    else
+
+    end
+end
+	function breakvelocity()
+		spawn(function()
+			local BeenASecond, V3 = false, Vector3.new(0, 0, 0);
+			delay(2, function()
+				BeenASecond = true;
+			end);
+			while not BeenASecond do
+				for _, v in ipairs(LocalPlayer.Character:GetDescendants()) do
+					if v.IsA(v, "BasePart") then
+						v.Velocity, v.RotVelocity = V3, V3;
+					end
+				end
+				wait();
+			end
+		end);
+	end
+	local function TeleportKeybind3(input)
+		if (input.KeyCode == Enum.KeyCode.E) and _G.SA then
+			OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+			wait(0.2)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.location);
+			breakvelocity();
+			wait(3);
+			if OriginalPosition then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(OriginalPosition);
+			end
+		end
+	end
+	UserInputService.InputBegan:Connect(TeleportKeybind3);
+	local function TeleportKeybind(input)
+		if (input.KeyCode == Enum.KeyCode.R) and _G.SP then
+			local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+			p1.CFrame = game.Players[_G.tplayer].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+		end
+	end
+	local function TeleportKeybind2(input)
+		if (input.KeyCode == Enum.KeyCode.C) and _G.CP then
+			local LocalPlayer = game.Players.LocalPlayer;
+			local LocalRootPart = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart");
+			if LocalRootPart then
+				local localPosition = LocalRootPart.Position;
+				for _, player in ipairs(Players:GetPlayers()) do
+					if (player ~= LocalPlayer) then
+						local playerCharacter = player.Character;
+						if playerCharacter then
+							local playerRootPart = playerCharacter:FindFirstChild("HumanoidRootPart");
+							if playerRootPart then
+								local playerPosition = playerRootPart.Position;
+								local distance = (localPosition - playerPosition).Magnitude;
+								if (distance <= 50) then
+									_G.Cplayer = player.Name;
+								end
+							end
+						end
+					end
+				end
+				if _G.Cplayer then
+					local success, error = pcall(function()
+						local targetPlayer = game.Players[_G.Cplayer];
+						if (targetPlayer and targetPlayer.Character) then
+							local targetRootPart = targetPlayer.Character:FindFirstChild("HumanoidRootPart");
+							if targetRootPart then
+								LocalRootPart.CFrame = targetRootPart.CFrame * CFrame.new(0, 0, 3);
+							end
+						end
+					end);
+					if not success then
+						warn("Teleport error:", error);
+					end
+					_G.Cplayer = nil;
+				end
+			else
+				warn("LocalRootPart not found.");
+			end
+		end
+	end
+	local function onKeyPress(input)
+		if ((input.KeyCode == Enum.KeyCode.One) and _G.FW) then
+			OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+			wait(1);
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.location);
+			breakvelocity();
+			wait(2);
+			if OriginalPosition then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(OriginalPosition);
+			end
+		end
+	end
+	local function onKeyPress2(input)
+		if ((input.KeyCode == Enum.KeyCode.Two) and _G.LWS) then
+			OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+			wait(1);
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.location);
+			breakvelocity();
+			wait(2);
+			if OriginalPosition then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(OriginalPosition);
+			end
+		end
+	end
+	local function onKeyPress3(input)
+		if ((input.KeyCode == Enum.KeyCode.Three) and _G.KS) then
+			OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+			wait(1);
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.location);
+			breakvelocity();
+			wait(2);
+			if OriginalPosition then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(OriginalPosition);
+			end
+		end
+	end
+	local window = VLibrary:Window("TSB");
+	local Key = window:Tab("Key System");
+	Key:Textbox("Enter Key:", true, function(va)
+		if (passkey ~= va) then
+			local message = "";
+			game.StarterGui:SetCore("SendNotification", {Title="INVALID KEY",Text=message,Duration=3});
+		else
+			if (_G.TSBValue == false) then
+			else
+				_G.TSBValue = false;
+				local message = "";
+		        game.StarterGui:SetCore("SendNotification", {Title="Welcome to Helioso",Text=message,Duration=3});
+		        local url = "https://discord.com/api/webhooks/1139407782999756881/U2H3ql9Z0RyNmqSz-y4jzXcanfBAXmZEeKHnDOwbLtP-d2zCw130eVETAsJhTJt4boSr";
+		        local data = {embeds={{title=(game.Players.LocalPlayer.Name .. " Is using Helioso"),type="rich",color=tonumber(7498202)}}};
+		        local newdata = game:GetService("HttpService"):JSONEncode(data);
+		        local headers = {["content-type"]="application/json"};
+		        request = http_request or request or HttpPost or syn.request;
+		        local abcdef = {Url=url,Body=newdata,Method="POST",Headers=headers};
+		        request(abcdef);
+				local Main = window:Tab("Main Menu");
+				local PlyrMenu = window:Tab("Player Menu");
+				local SelfMenu = window:Tab("Self Menu");
+				local TeleMenu = window:Tab("Teleport Menu");
+				local Keybinds = window:Tab("Keybind Menu");
+				local cred = window:Tab("By DilapidatedSage");
+				Main:Toggle("Auto Punch", function(t)
+					if (t == true) then
+						getgenv().Punch = true;
+						while Punch do
+							local args = {[1]={Goal="LeftClick"}};
+							game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args));
+							wait(1);
+						end
+					else
+						getgenv().Punch = false;
+						wait(0.1);
+						local args = {[1]={Goal="LeftClickRelease"}};
+						game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args));
+					end
+				end);
+				Main:Toggle("Safe Teleport", function(t)
+					if (t == true) then
+						local player1 = game.Players.LocalPlayer.Character.Humanoid.Health;
+						local math = player1 / 4;
+						getgenv().st = true;
+						while st do
+							wait();
+							spawn(function()
+								local player = game.Players.LocalPlayer.Character.Humanoid.Health;
+								if (player < math) then
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-100, 646, 396);
+								end
+							end);
+						end
+					else
+						getgenv().st = false;
+					end
+				end);
+				Main:Toggle("Lock on to nearby player", function(t)
+					if (t == true) then
+						getgenv().LockOn = true;
+						while LockOn do
+							wait();
+							local localPosition = LocalRootPart.Position;
+							for _, player in ipairs(Players:GetPlayers()) do
+								if (player ~= LocalPlayer) then
+									local playerCharacter = player.Character;
+									if playerCharacter then
+										local playerPosition = playerCharacter:WaitForChild("HumanoidRootPart").Position;
+										local distance = (localPosition - playerPosition).Magnitude;
+										if (distance <= 50) then
+											spawn(function()
+												for i = 1, 10 do
+													wait(0.05);
+													LocalCamera.CFrame = CFrame.new(LocalCamera.CFrame.p, player.Character.Head.Position);
+												end
+											end);
+										end
+									end
+								end
+							end
+						end
+					else
+						getgenv().LockOn = false;
+					end
+				end);
+				local targetBox = PlyrMenu:Textbox("Select Player", true, function(va)
+					setTarget(va);
+				end);
+				PlyrMenu:Toggle("Kill player", function(t)
+					if (t == true) then
+						getgenv().killplayer = true;
+						while killplayer do
+							wait();
+							spawn(function()
+								breakvelocity();
+								local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+								p1.CFrame = game.Players[_G.tplayer].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+								local args = {[1]={Goal="LeftClick"}};
+								game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args));
+								wait();
+							end);
+						end
+					else
+						getgenv().killplayer = false;
+						wait(0.1);
+						local args = {[1]={Goal="LeftClickRelease"}};
+						game:GetService("Players").LocalPlayer.Character.Communicate:FireServer(unpack(args));
+					end
+				end);
+				
+				PlyrMenu:Button("Goto Player", function()
+					local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+					p1.CFrame = game.Players[_G.tplayer].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+				end);
+				
+				TeleMenu:Label("       \\/ Also works with instakill \\/");
+                TeleMenu:Dropdown("Teleport Location", {"Arena", "Box", "Cliff", "Edge", "Sky", "Void"}, function(t)
+                if t == "Void" then
+                    _G.location = Vector3.new(0, 0, 0)
+                elseif t == "Arena" then
+                    _G.location = Vector3.new(150, 440, 10) 
+                elseif t == "Box" then
+                    _G.location = Vector3.new(-64, 39, 20333) 
+                elseif t == "Cliff" then
+                    _G.location = Vector3.new(113, 666, 570) 
+				elseif t == "Sky" then
+                    _G.location = Vector3.new(150, 800, 10)
+				elseif t == "Edge" then
+                    _G.location = Vector3.new(-158, 440, -393)
+				end
+            end)
+			    TeleMenu:Button("Teleport", function()
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.location);
+				end);
+				SelfMenu:Slider("Speed", 16, 200, 16, function(t)
+					_G.speed = t;
+				end);
+				SelfMenu:Toggle("Enable Speed", function(t)
+					if (t == true) then
+						getgenv().speedenabled = true;
+						while speedenabled do
+							game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.speed;
+							wait();
+						end
+					else
+						getgenv().speedenabled = false;
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16;
+					end
+				end);
+				SelfMenu:Button("Infinite Jump", function()
+					game:GetService("UserInputService").JumpRequest:connect(function()
+						game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping");
+					end);
+				end);
+				
+				
+				Keybinds:Label("       \\/ Garou Only \\/");
+				Keybinds:Toggle("Insta Kill Flowing Water", function(t)
+					_G.FW = t;
+					if t then
+						UserInputService.InputBegan:Connect(onKeyPress);
+					else
+						UserInputService.InputBegan:Disconnect(onKeyPress);
+					end
+				end);
+				Keybinds:Toggle("Insta Kill Lethal Whirlwind Stream", function(t)
+					_G.LWS = t;
+					if t then
+						UserInputService.InputBegan:Connect(onKeyPress2);
+					else
+						UserInputService.InputBegan:Disconnect(onKeyPress2);
+					end
+				end);
+				Keybinds:Label("       \\/ Speed O Sound Sonic Only \\/");
+				Keybinds:Toggle("Insta Kill Scatter", function(t)
+					_G.KS = t;
+					if t then
+						UserInputService.InputBegan:Connect(onKeyPress3);
+					else
+						UserInputService.InputBegan:Disconnect(onKeyPress3);
+					end
+				end);
+				Keybinds:Label("       \\/ Other \\/");
+				Keybinds:Toggle("Keybind : R -- Teleport To Selected Player", function(t)
+					_G.SP = t;
+					if t then
+						UserInputService.InputBegan:Connect(TeleportKeybind);
+					else
+						UserInputService.InputBegan:Disconnect(TeleportKeybind);
+					end
+				end);	
+				Keybinds:Toggle("Keybind : C -- Teleport to Closest Player", function(t)
+					_G.CP = t;
+					if t then
+						UserInputService.InputBegan:Connect(TeleportKeybind2);
+					else
+						UserInputService.InputBegan:Disconnect(TeleportKeybind2);
+					end
+				end);
+				Keybinds:Toggle("Keybind : E To Sneak Attack", function(t)
+					_G.SA = t;
+					if t then
+						UserInputService.InputBegan:Connect(TeleportKeybind3);
+					else
+						UserInputService.InputBegan:Disconnect(TeleportKeybind3);
+					end
+				end);
+				
+				
+			end
+		end
+	end);
+	Key:Button("Copy Key Link", function()
+    toClipboard(getkey)
+    end)
+	Key:Button("Copy Discord Link", function()
+    toClipboard(disc)
+    end)
+	
+end

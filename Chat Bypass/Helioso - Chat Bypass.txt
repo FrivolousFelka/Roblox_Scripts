@@ -1,0 +1,414 @@
+--[[
+ 
+██╗  ██╗███████╗██╗     ██╗ ██████╗ ███████╗ ██████╗     
+██║  ██║██╔════╝██║     ██║██╔═══██╗██╔════╝██╔═══██╗    
+███████║█████╗  ██║     ██║██║   ██║███████╗██║   ██║    
+██╔══██║██╔══╝  ██║     ██║██║   ██║╚════██║██║   ██║    
+██║  ██║███████╗███████╗██║╚██████╔╝███████║╚██████╔╝    
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝ ╚═════╝     
+                                                         
+Made By DilapidatedSage
+
+]]--
+
+if (_G.CB == true) then
+else
+	local VLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/DilapidatedSage/vep_UI/main/vep"))();
+	loadstring(game:HttpGet("https://pastebin.com/raw/tfj7V89h"))();
+	MAINTTL = "Helioso";
+	_G.CB = true;
+	_G.CBValue = true;
+	function toClipboard(String)
+    local clipBoard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
+    if clipBoard then
+        clipBoard(String)
+    else
+
+    end
+    end
+	local window = VLibrary:Window("Chat Bypasser");
+	local Key = window:Tab("Key System");
+	Key:Textbox("Enter Key:", true, function(va)
+		if (passkey ~= va) then
+			local message = "";
+			game.StarterGui:SetCore("SendNotification", {Title="INVALID KEY",Text=message,Duration=3});
+		else	
+			if (_G.CBValue == false) then
+			else
+				_G.CBValue = false;
+				local message = "";
+		     	game.StarterGui:SetCore("SendNotification", {Title="Welcome to Helioso",Text=message,Duration=3});
+		     	local url = "https://discord.com/api/webhooks/1139232640310984794/lGoTxRvHk9fFuyC6jnrG4G5j0XmNH3FtKLZsHPIaStoQ9er4315D-gJivnc4XPDAzRx-";
+		     	local data = {embeds={{title=(game.Players.LocalPlayer.Name .. " Is using Helioso"),type="rich",color=tonumber(7498202)}}};
+		     	local newdata = game:GetService("HttpService"):JSONEncode(data);
+		     	local headers = {["content-type"]="application/json"};
+		     	request = http_request or request or HttpPost or syn.request;
+		     	local abcdef = {Url=url,Body=newdata,Method="POST",Headers=headers};
+		     	request(abcdef);
+				local Main = window:Tab("Main");
+				local Sent = window:Tab("Sentences");
+				local Other = window:Tab("Other");
+				local cred = window:Tab("By DilapidatedSage");
+				Sent:Button("Baby Rape", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("b\208\176b\209\131 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e", "All");
+				end);
+				Sent:Button("Can i have some of that boobie milk", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\129\208\176n \209\150 \210\187\208\176\206\189\208\181 \209\149\206\191m\208\181 \206\191f t\210\187\208\176t b\206\191\206\191b\209\150\208\181 m\209\150Ik", "All");
+				end);
+				Sent:Button("Can i have your virginity", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\129\208\176n \209\150 \210\187\208\176\206\189\208\181 \209\131\206\191ur \206\189i\240\144\140\156\240\144\140\156rg\240\144\140\156\240\144\140\156inity", "All");
+				end);
+				Sent:Button("Can i touch your boobies", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\129\208\176n \209\150 t\206\191u\209\129\210\187 \209\131\206\191ur \240\144\140\156 \208\172\240\144\140\156\240\144\140\156 \240\144\140\156 o\240\144\140\156 o\240\144\140\156 b\240\144\140\156ies", "All");
+				end);
+				Sent:Button("Can that pussy squirt?", function()  
+                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\129\208\176n t\210\187\208\176t \240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\149\240\144\140\156 \209\149\240\144\140\156 y sq\240\144\140\156\240\144\140\156uirt ?","All")   
+				end);
+				
+				Sent:Button("Damn girl you shit with that ass?", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("d\208\176mn g\209\150rI \209\131\206\191u s\240\144\140\156\240\144\140\156 h\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 t w\209\150t\210\187 t\210\187\208\176t \240\144\140\156 \208\176\240\144\140\156\240\144\140\156 \240\144\140\156 s\240\144\140\156 \209\149 ?", "All");
+				end);
+				Sent:Button("Damn you got some nice ass titties", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("d\208\176mn \209\131\206\191u g\206\191t \209\149\206\191m\208\181 n\209\150\209\129\208\181 \240\144\140\156 \208\176\240\144\140\156\240\144\140\156 \240\144\140\156 s\240\144\140\156 \209\149 t\209\150tt\209\150\208\181\209\149", "All");
+				end);
+				Sent:Button("Do you like diaper porn", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("d\206\191 \209\131\206\191u I\209\150k\208\181 d\209\150\208\176p\208\181r \240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 r\240\144\140\156 n ?", "All");
+				end);
+				Sent:Button("Fuck Niggers", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k \240\144\140\156 n\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 \208\181\240\144\140\156 r\240\144\140\156 \209\149", "All");
+				end);
+				Sent:Button("Heil Hitler", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\210\187\208\181\209\150I h\240\144\140\156\240\144\140\156it\240\144\140\156\240\144\140\156 Ier", "All");
+				end);
+				Sent:Button("Hey kid you want some drugs?", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\210\187\208\181\209\131 k\209\150d \209\131\206\191u w\208\176nt \209\149\206\191m\208\181 dr\240\144\140\156\240\144\140\156ugs ?", "All");
+				end);
+				Sent:Button("I dont fucking care if you're a minor", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 d\206\191nt \240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k\240\144\140\156 \209\150\240\144\140\156 n\240\144\140\156 g \209\129\208\176r\208\181 \209\150f \209\131\206\191u'r\208\181 \208\176 m\209\150n\206\191r", "All");
+				end);
+				Sent:Button("I know that pussy is popping", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 kn\206\191w t\210\187\208\176t \240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\149\240\144\140\156 \209\149\240\144\140\156 y \209\150\209\149 p\206\191pp\209\150ng", "All");
+				end);
+				Sent:Button("I love child porn", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 I\206\191\206\189\208\181 \209\129\210\187\209\150Id \240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 r\240\144\140\156 n", "All");
+				end);
+				Sent:Button("I love gay porn", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 I\206\191\206\189\208\181 g\240\144\140\156 \240\144\140\156ay \240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 r\240\144\140\156 n", "All");
+				end);
+				Sent:Button("i rape little kids", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e I\209\150ttI\208\181 k\209\150d\209\149", "All");
+				end);
+				Sent:Button("I rape tiny babies", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e t\209\150n\209\131 b\208\176b\209\150\208\181\209\149", "All");
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e t\209\150n\209\131 b\208\176b\209\150\208\181\209\149", "All");
+				end);
+				Sent:Button("I rape Women", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e w\206\191m\208\181n", "All");
+				end);
+				Sent:Button("Im about to cum", function()
+                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150m \208\176b\206\191ut t\206\191 \240\144\140\156 \209\129\240\144\140\156 \240\144\140\156u\240\144\140\156 m","All")
+	            end);
+				
+				Sent:Button("Im adding you to the rape list", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150m \208\176dd\209\150ng \209\131\206\191u t\206\191 \240\144\140\156t\240\144\140\156h\240\144\140\156\240\144\140\156\208\181 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e I\209\150\209\149t", "All");
+				end);
+				Sent:Button("Im gonna rape you", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\150m g\206\191nn\208\176 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e \209\131\206\191u", "All");
+				end);
+				Sent:Button("Keep yapping your mouth nigger", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("k\208\181\208\181p \209\131\208\176pp\209\150ng \209\131\206\191ur m\206\191ut\210\187 \240\144\140\156 n\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 \208\181\240\144\140\156 r", "All");
+				end);
+				Sent:Button("Kill yourself", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("k\240\144\140\156il\240\144\140\156\240\144\140\156l  \209\131\206\191ur\209\149\208\181If ", "All");
+				end);
+				Sent:Button("Kill yourself nigger", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("k\240\144\140\156il\240\144\140\156\240\144\140\156l  \209\131\206\191ur\209\149\208\181If \240\144\140\156 n\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 \208\181\240\144\140\156 r", "All");
+				end);
+				Sent:Button("Legalize child porn", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I\208\181g\208\176I\209\150z\208\181 \209\129\210\187\209\150Id \240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 r\240\144\140\156 n", "All");
+				end);
+				Sent:Button("Let a nigga smash", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I\208\181t \208\176 \240\144\140\156 \239\189\142\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 a \209\149m\208\176\209\149\210\187", "All");
+				end);
+				Sent:Button("Let me rape you please", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I\208\181t m\208\181 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e \209\131\206\191u pI\208\181\208\176\209\149\208\181", "All");
+				end);
+				Sent:Button("Let me see that dick", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I\208\181t m\208\181 \209\149\208\181\208\181 t\210\187\208\176t d\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 \209\129\240\144\140\156 k", "All");
+				end);
+				Sent:Button("Niggers need to die", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 n\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 \208\181\240\144\140\156 r\240\144\140\156 \209\149 n\208\181\208\181d t\206\191 d\209\150\208\181", "All");
+				end);
+				Sent:Button("Penis Balls", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\128\240\144\140\156\240\144\140\156 \240\144\140\156 \208\181\240\144\140\156 n\240\144\140\156 i\240\144\140\156 s\240\144\140\156 b\240\144\140\156\240\144\140\156a\240\144\140\156l\240\144\140\156l\240\144\140\156s", "All");
+				end);
+				Sent:Button("Retarded faggot", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \208\179\240\144\140\156\ eta \240\144\140\156 \208\179\240\144\140\156\ ded f\240\144\140\156\240\144\140\156\208\176\240\144\140\156\240\144\140\156g\240\144\140\156got   ", "All");
+				end);
+				Sent:Button("Sexualize autism", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\149\208\181\209\133u\208\176I\209\150z\208\181 \208\176ut\209\150\209\149m", "All");
+				end);
+				Sent:Button("Shit ass", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("s\240\144\140\156\240\144\140\156 h\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 t \240\144\140\156 \208\176\240\144\140\156\240\144\140\156 \240\144\140\156 s\240\144\140\156 \209\149", "All");
+				end);
+				Sent:Button("Shut the fuck up faggot", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\149\210\187ut \240\144\140\156t\240\144\140\156h\240\144\140\156\240\144\140\156\208\181 \240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k up f\240\144\140\156a\240\144\140\156\240\144\140\156 g\240\144\140\156\240\144\140\156go\240\144\140\156\240\144\140\156\240\144\140\156 t", "All");
+				end);
+				Sent:Button("Stupid Whore", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\149tup\209\150d w\240\144\140\156\240\144\140\156ho\240\144\140\156 r\240\144\140\156 \208\181", "All");
+				end);
+				Sent:Button("Sorry princess i only fuck crack whores", function()
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\149\206\191rr\209\131 pr\209\150n\209\129\208\181\209\149\209\149 \209\150 \206\191nI\209\131 \240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k \209\129r\208\176\209\129k w\240\144\140\156\240\144\140\156ho\240\144\140\156 r\240\144\140\156 \208\181s","All")
+				end);
+				Sent:Button("The fuck is wrong with you nigger", function()
+                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156t\240\144\140\156h\240\144\140\156\240\144\140\156\208\181 \240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k \209\150\209\149 wr\206\191ng w\209\150t\210\187 \209\131\206\191u \240\144\140\156 n\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 \208\181\240\144\140\156 r","All")
+				end);
+				
+				Sent:Button("Watch pornhub", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("w\208\176t\209\129\210\187 \240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 r\240\144\140\156 nhub", "All");
+				end);
+				Sent:Button("Why doesnt anyone want to have sex with me ", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("w\210\187\209\131 d\206\191\208\181\209\149nt \208\176n\209\131\206\191n\208\181 w\208\176nt t\206\191 \210\187\208\176\206\189\208\181 \240\144\140\156 \209\149\240\144\140\156\240\144\140\156 \240\144\140\156 e\240\144\140\156 x w\209\150t\210\187 m\208\181", "All");
+				end);
+				Sent:Button("You disgusting fatass", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\131\206\191u d\209\150\209\149gu\209\149t\209\150ng fat\240\144\140\156 a\240\144\140\156\240\144\140\156 \240\144\140\156 s\240\144\140\156 \209\149", "All");
+				end);
+				Sent:Button("You feel like sucking my dick?", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\131\206\191u f\208\181\208\181I I\209\150k\208\181 s\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 king m\209\131 d\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 \209\129\240\144\140\156 k ?", "All");
+				end);
+				Sent:Button("you like this dick?", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\131\206\191u I\209\150k\208\181 t\210\187\209\150\209\149 d\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 \209\129\240\144\140\156 k ?", "All");
+				end);
+				Sent:Button("You Look like shit", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\131\206\191u I\206\191\206\191k I\209\150k\208\181 s\240\144\140\156\240\144\140\156 h\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 t", "All");
+				end);
+				Sent:Button("You need some raping", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\131\206\191u n\208\181\208\181d \209\149\206\191m\208\181 \240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156ing", "All");
+				end);
+				Sent:Button("You want this dick?", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\209\131\206\191u w\208\176nt t\210\187\209\150\209\149 d\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 \209\129\240\144\140\156 k ?", "All");
+				end);
+				Other:Button(".semon", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(".semon", "All");
+				end);
+				Other:Button("@fatass", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("@fatass", "All");
+				end);
+				Other:Button("roughsexonawall", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("roughsexonawall", "All");
+				end);
+				Other:Button("slowass", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("slowass", "All");
+				end);
+				Other:Button("thundersex", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("thundersex", "All");
+				end);
+				Other:Button("whats your discord", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("w\210\187\208\176t\209\149 \209\131\206\191ur di\240\144\140\156 s\240\144\140\156\240\144\140\156co\240\144\140\156r\240\144\140\156\240\144\140\156 d", "All");
+				end);
+				Main:Button("Abortion", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("ab\240\144\140\156\208\190r\240\144\140\156 tion", "All");
+				end);
+				Main:Button("Adolf", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("a\240\144\140\156\240\144\140\156do\240\144\140\156\240\144\140\156 If", "All");
+				end);
+				Main:Button("Arse", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\208\176\240\144\140\156\240\144\140\156rs\240\144\140\156\240\144\140\156 e", "All");
+				end);
+				Main:Button("Balls", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("b\240\144\140\156\240\144\140\156a\240\144\140\156l\240\144\140\156l\240\144\140\156s", "All");
+				end);
+				Main:Button("Bitch", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("b\240\144\140\156\240\144\140\156 \240\144\140\156 i\240\144\140\156 t\240\144\140\156 ch", "All");
+				end);
+				Main:Button("Bitches", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("b\240\144\140\156\240\144\140\156 \240\144\140\156 i\240\144\140\156 t\240\144\140\156 c\240\144\140\156 hes", "All");
+				end);
+				Main:Button("Bitching", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("b\240\144\140\156\240\144\140\156 \240\144\140\156 i\240\144\140\156 t\240\144\140\156 c\240\144\140\156 hing", "All");
+				end);
+				Main:Button("Blowjob", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("bI\240\144\140\156\240\144\140\156 \240\144\140\156 ow\240\144\140\156 j\240\144\140\156 ob", "All");
+				end);
+				Main:Button("Boob", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \208\172\240\144\140\156\240\144\140\156 \240\144\140\156 o\240\144\140\156 o\240\144\140\156 b\240\144\140\156", "All");
+				end);
+				Main:Button("Boobies", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \208\172\240\144\140\156\240\144\140\156 \240\144\140\156 o\240\144\140\156 o\240\144\140\156 b\240\144\140\156ies", "All");
+				end);
+				Main:Button("Boobs", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("b\240\144\140\156\240\144\140\156 \240\144\140\156 \208\190\240\144\140\156 o\240\144\140\156 b\209\149", "All");
+				end);
+				Main:Button("Breast", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156\206\146\240\144\140\156 r\240\144\140\156\240\144\140\156 \240\144\140\156 \208\181\240\144\140\156 a\240\144\140\156\240\144\140\156s\240\144\140\156 t\240\144\140\156\240\144\140\156", "All");
+				end);
+				Main:Button("Breasts", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156\206\146\240\144\140\156 r\240\144\140\156\240\144\140\156 \240\144\140\156 \208\181\240\144\140\156 a\240\144\140\156\240\144\140\156s\240\144\140\156 ts\240\144\140\156\240\144\140\156", "All");
+				end);
+				Main:Button("Cock", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("c\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 \209\129\240\144\140\156 k", "All");
+				end);
+				Main:Button("Cum", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\129\240\144\140\156 \240\144\140\156u\240\144\140\156 m", "All");
+				end);
+				Main:Button("Cumming", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\129\240\144\140\156 \240\144\140\156u\240\144\140\156 mming", "All");
+				end);
+				Main:Button("Cumshot", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\129\240\144\140\156 \240\144\140\156u\240\144\140\156 mshot", "All");
+				end);
+				Main:Button("Dick", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("d\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 \209\129\240\144\140\156 k", "All");
+				end);
+				Main:Button("Dildo", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("DiId\240\144\140\156o\240\144\140\156\240\144\140\156\240\144\140\156\240\144\140\156", "All");
+				end);
+				Main:Button("Dildos", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("DiId\240\144\140\156os\240\144\140\156\240\144\140\156\240\144\140\156\240\144\140\156", "All");
+				end);
+				Main:Button("Fag", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("f\240\144\140\156\240\144\140\156\208\176\240\144\140\156\240\144\140\156g\240\144\140\156", "All");
+				end);
+				Main:Button("Faggot", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("f\240\144\140\156\240\144\140\156\208\176\240\144\140\156\240\144\140\156g\240\144\140\156got", "All");
+				end);
+				Main:Button("Fatass", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("fat\240\144\140\156 a\240\144\140\156\240\144\140\156 \240\144\140\156 s\240\144\140\156 \209\149", "All");
+				end);
+				Main:Button("Femboy", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("fe\240\144\140\156\240\144\140\156m\240\144\140\156\240\144\140\156b\240\144\140\156\240\144\140\156oy", "All");
+				end);
+				Main:Button("Femboys", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("fe\240\144\140\156\240\144\140\156m\240\144\140\156\240\144\140\156b\240\144\140\156\240\144\140\156oys", "All");
+				end);
+				Main:Button("Fuck", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k", "All");
+				end);
+				Main:Button("Fucker", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k\240\144\140\156 e\240\144\140\156 r", "All");
+				end);
+				Main:Button("Fucking", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k\240\144\140\156 \209\150\240\144\140\156 n\240\144\140\156 g", "All");
+				end);
+				Main:Button("Gay", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("g\240\144\140\156 \240\144\140\156ay", "All");
+				end);
+				Main:Button("Gays", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("g\240\144\140\156 \240\144\140\156ays", "All");
+				end);
+				Main:Button("Hentai", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("h\240\144\140\156\240\144\140\156 \240\144\140\156 e\240\144\140\156 n\240\144\140\156 tai", "All");
+				end);
+				Main:Button("Hitler", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("h\240\144\140\156\240\144\140\156it\240\144\140\156\240\144\140\156 Ier", "All");
+				end);
+				Main:Button("Horny", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("ho\240\144\140\156\240\144\140\156r\240\144\140\156\240\144\140\156n\240\144\140\156\240\144\140\156\209\131", "All");
+				end);
+				Main:Button("Kike", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("k\240\144\140\156\240\144\140\156ik\240\144\140\156\240\144\140\156 e", "All");
+				end);
+				Main:Button("Kys", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("k\240\144\140\156\240\144\140\156y\240\144\140\156s", "All");
+				end);
+				Main:Button("Meth", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("m\240\144\140\156\240\144\140\156et\240\144\140\156 h", "All");
+				end);
+				Main:Button("Motherfucker", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("mother\240\144\140\156 f\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\129\240\144\140\156 k\240\144\140\156 e\240\144\140\156 r", "All");
+				end);
+				Main:Button("Nazi", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("n\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 z\240\144\140\156 i", "All");
+				end);
+				Main:Button("Nazis", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("n\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 z\240\144\140\156 is", "All");
+				end);
+				Main:Button("Nigga", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \239\189\142\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 a", "All");
+				end);
+				Main:Button("Nigger", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 n\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 \208\181\240\144\140\156 r", "All");
+				end);
+				Main:Button("Niggers", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 n\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 g\240\144\140\156 g\240\144\140\156 \208\181\240\144\140\156 r\240\144\140\156 \209\149", "All");
+				end);
+				Main:Button("Pedophile", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("pe\240\144\140\156\240\144\140\156do\240\144\140\156\240\144\140\156ph\240\144\140\156\240\144\140\156iI\240\144\140\156\240\144\140\156e", "All");
+				end);
+				Main:Button("Penis", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\128\240\144\140\156\240\144\140\156 \240\144\140\156 \208\181\240\144\140\156 n\240\144\140\156 i\240\144\140\156 s\240\144\140\156", "All");
+				end);
+				Main:Button("Porn", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 r\240\144\140\156 n", "All");
+				end);
+				Main:Button("Pornhub", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 \206\191\240\144\140\156 r\240\144\140\156 nhub", "All");
+				end);
+				Main:Button("Pussy", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 p\240\144\140\156\240\144\140\156 \240\144\140\156 u\240\144\140\156 \209\149\240\144\140\156 \209\149\240\144\140\156 y", "All");
+				end);
+				Main:Button("Rape", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156 e", "All");
+				end);
+				Main:Button("Raping", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \208\179\240\144\140\156\240\144\140\156 \240\144\140\156 a\240\144\140\156 p\240\144\140\156ing", "All");
+				end);
+				Main:Button("Retard", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \208\179\240\144\140\156\ eta \240\144\140\156 \208\179\240\144\140\156\ d", "All");
+				end);
+				Main:Button("Retarded", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \208\179\240\144\140\156\ eta \240\144\140\156 \208\179\240\144\140\156\ ded", "All");
+				end);
+				Main:Button("Sex", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\149\240\144\140\156\240\144\140\156 \240\144\140\156 \208\181\240\144\140\156 \208\181\209\133", "All");
+				end);
+				Main:Button("Sexy", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\149\240\144\140\156\240\144\140\156 \240\144\140\156 \208\181\240\144\140\156 exy", "All");
+				end);
+				Main:Button("Shit", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("s\240\144\140\156\240\144\140\156 h\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 t", "All");
+				end);
+				Main:Button("Shitting", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("s\240\144\140\156\240\144\140\156 h\240\144\140\156\240\144\140\156 \240\144\140\156 \209\150\240\144\140\156 t\240\144\140\156 t\240\144\140\156 i\240\144\140\156 n\240\144\140\156 g", "All");
+				end);
+				Main:Button("Slave", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Slav\240\144\140\156e\240\144\140\156\240\144\140\156\240\144\140\156\240\144\140\156", "All");
+				end);
+				Main:Button("Slut", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\149\240\144\140\156\240\144\140\156  lut", "All");
+				end);
+				Main:Button("Sluts", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\240\144\140\156 \209\149\240\144\140\156\240\144\140\156  luts", "All");
+				end);
+				Main:Button("Stfu", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("stf\240\144\140\156u\240\144\140\156", "All");
+				end);
+				Main:Button("Vagina", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("v\240\144\140\156a\240\144\140\156g\209\150\240\144\140\156n\240\144\140\156a", "All");
+				end);
+				Main:Button("Virgin", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\206\189i\240\144\140\156\240\144\140\156rg\240\144\140\156\240\144\140\156in", "All");
+				end);
+				Main:Button("Virgins", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("\206\189i\240\144\140\156\240\144\140\156rg\240\144\140\156\240\144\140\156ins", "All");
+				end);
+				Main:Button("Whore", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("w\240\144\140\156\240\144\140\156ho\240\144\140\156 r\240\144\140\156 \208\181", "All");
+				end);
+				Main:Button("Whores", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("w\240\144\140\156\240\144\140\156ho\240\144\140\156 r\240\144\140\156 \208\181s", "All");
+				end);
+				Main:Button("X Videos", function()
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("xvi\240\144\140\156de\240\144\140\156\206\191s", "All");
+				end);
+			end
+		end
+		
+	end);
+	Key:Button("Copy Key Link", function()
+        toClipboard(getkey)
+    end)
+	Key:Button("Copy Discord Link", function()
+    toClipboard(disc)
+    end)
+end

@@ -1,0 +1,34 @@
+Farms:Toggle("Toggle Farm", function(t)
+                    if (t == true) then
+                        getgenv().Farm = true
+						spawn(function()
+						    while Farm do 
+							wait(1)
+							breakvelocity()
+							end
+						end)
+                        while Farm do
+                            wait(0.05)
+							spawn(function()
+							    local targetNPC = game:GetService("Workspace").Living[_G.selectedNPC]
+                                local targetHumanoid = targetNPC and targetNPC:FindFirstChild("Humanoid")
+                                
+                                if targetHumanoid and targetHumanoid.Health > 0 then
+                                    local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart
+                                    local p2 = targetNPC.HumanoidRootPart               
+                                    if p1 and p2 then
+                                        game:GetService("ReplicatedStorage"):WaitForChild("events"):WaitForChild("remote"):FireServer("NormalAttack")
+                                        p1.CFrame = p2.CFrame * CFrame.new(0, 0, 7)
+                                    end
+                                else
+                                    if targetNPC then
+                                        targetNPC:Destroy()
+                                    end
+                                end
+							end)
+							
+                        end
+                    else
+                        getgenv().Farm = false
+                    end
+                end);

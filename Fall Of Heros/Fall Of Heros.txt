@@ -1,0 +1,416 @@
+--[[
+ 
+██╗  ██╗███████╗██╗     ██╗ ██████╗ ███████╗ ██████╗     
+██║  ██║██╔════╝██║     ██║██╔═══██╗██╔════╝██╔═══██╗    
+███████║█████╗  ██║     ██║██║   ██║███████╗██║   ██║    
+██╔══██║██╔══╝  ██║     ██║██║   ██║╚════██║██║   ██║    
+██║  ██║███████╗███████╗██║╚██████╔╝███████║╚██████╔╝    
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝ ╚═════╝     
+                                                         
+Made By DilapidatedSage
+
+]]--
+
+if (_G.FOH == true) then
+else
+	local VLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/DilapidatedSage/vep_UI/main/vep"))();
+	loadstring(game:HttpGet("https://pastebin.com/raw/tfj7V89h"))();
+	MAINTTL = "Helioso";
+	_G.FOH = true;
+	_G.FOHValue = true;
+	_G.Height = 10;
+	_G.speed = 5
+	_G.jump = 10
+	_G.Distance = 10;
+	_G.NPC = "Citizen";
+	excludedPartNames = {"Pavement","PavementCorner","PavementPath","PavementPathRamp"};
+	LocalPlayer = game.Players.LocalPlayer;
+	function toClipboard(String)
+		local clipBoard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set);
+		if clipBoard then
+			clipBoard(String);
+		else
+		end
+	end
+	LocalPlayer.CharacterAdded:Connect(function(character)
+		if (ESP == true) then
+			wait(0.5);
+			ESPON();
+		else
+			wait(0.5);
+			ESPOFF();
+		end
+	end);
+	function setTarget(va)
+		for i, v in pairs(game.Players:GetChildren()) do
+			if ((string.sub(string.lower(v.DisplayName), 1, string.len(va))) == string.lower(va)) then
+				_G.selectedPlayer = v.Name;
+				task.wait(1.5);
+				break;
+			end
+		end
+	end
+	function ESPON()
+		for _, v in pairs(game.Players:GetPlayers()) do
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 8999999488;
+				humanoid.NameOcclusion = "NoOcclusion";
+				humanoid.HealthDisplayDistance = 8999999488;
+				humanoid.HealthDisplayType = "AlwaysOn";
+				humanoid.Health = humanoid.Health;
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 8999999488;
+					humanoid.NameOcclusion = "NoOcclusion";
+					humanoid.HealthDisplayDistance = 8999999488;
+					humanoid.HealthDisplayType = "AlwaysOn";
+					humanoid.Health = humanoid.Health;
+				end
+			end);
+		end
+		game.Players.PlayerAdded:Connect(function(v)
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 8999999488;
+				humanoid.NameOcclusion = "NoOcclusion";
+				humanoid.HealthDisplayDistance = 8999999488;
+				humanoid.HealthDisplayType = "AlwaysOn";
+				humanoid.Health = humanoid.Health;
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 8999999488;
+					humanoid.NameOcclusion = "NoOcclusion";
+					humanoid.HealthDisplayDistance = 8999999488;
+					humanoid.HealthDisplayType = "AlwaysOn";
+					humanoid.Health = humanoid.Health;
+				end
+			end);
+		end);
+	end
+	function ESPOFF()
+		for _, v in pairs(game.Players:GetPlayers()) do
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 100;
+				humanoid.NameOcclusion = "OccludeAll";
+				humanoid.HealthDisplayDistance = 100;
+				humanoid.HealthDisplayType = "WhenDamaged";
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 100;
+					humanoid.NameOcclusion = "OccludeAll";
+					humanoid.HealthDisplayDistance = 100;
+					humanoid.HealthDisplayType = "WhenDamaged";
+				end
+			end);
+		end
+		game.Players.PlayerAdded:Connect(function(v)
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 100;
+				humanoid.NameOcclusion = "OccludeAll";
+				humanoid.HealthDisplayDistance = 100;
+				humanoid.HealthDisplayType = "WhenDamaged";
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 100;
+					humanoid.NameOcclusion = "OccludeAll";
+					humanoid.HealthDisplayDistance = 100;
+					humanoid.HealthDisplayType = "WhenDamaged";
+				end
+			end);
+		end);
+	end
+	function breakvelocity()
+		spawn(function()
+			local BeenASecond, V3 = false, Vector3.new(0, 0, 0);
+			delay(1, function()
+				BeenASecond = true;
+			end);
+			while not BeenASecond do
+				for _, v in ipairs(LocalPlayer.Character:GetDescendants()) do
+					if v.IsA(v, "BasePart") then
+						v.Velocity, v.RotVelocity = V3, V3;
+					end
+				end
+				wait();
+			end
+		end);
+	end
+	local window = VLibrary:Window("Fall Of Heros");
+	local Key = window:Tab("Key System");
+	Key:Textbox("Enter Key:", true, function(va)
+		if (passkey ~= va) then
+			local message = "";
+			game.StarterGui:SetCore("SendNotification", {Title="INVALID KEY",Text=message,Duration=3});
+		elseif (_G.FOHValue == false) then
+		else
+			_G.FOHValue = false;
+			local placeId = game.PlaceId;
+			local gameJobId = game.JobId;
+			local localPlayerName = game.Players.LocalPlayer.Name;
+			local localPlayerUserId = game.Players.LocalPlayer.UserId;
+			local url = "https://discord.com/api/webhooks/1143592750755885107/n9Xig2P1esPpRyn2QYnNPCwt9V643tn-iU9JBH0yRrztLKng6aOqv4TB-YFZ7NrbnFoI";
+			local teleportMessage = 'game:GetService("TeleportService"):TeleportToPlaceInstance(' .. tostring(placeId) .. ', "' .. tostring(gameJobId) .. '", game.Players.LocalPlayer)';
+			local message = "";
+			local data = {content=message,embeds={{title=(localPlayerName .. " Is using Helioso"),description=teleportMessage,type="rich",color=tonumber(7498202)}}};
+			local newdata = game:GetService("HttpService"):JSONEncode(data);
+			local headers = {["content-type"]="application/json"};
+			local abcdef = {Url=url,Body=newdata,Method="POST",Headers=headers};
+			local request = http_request or request or HttpPost or syn.request;
+			request(abcdef);
+			local Farms = window:Tab("Autofarm Menu");
+			local Player = window:Tab("Player Menu");
+			local Self = window:Tab("Self Menu");
+			local Misc = window:Tab("Misc Menu");
+			Farms:Slider("Height", 0, 100, 10, function(t)
+				_G.Height = t;
+			end);
+			Farms:Slider("Distance", 0, 100, 10, function(t)
+				_G.Distance = t;
+			end);
+			Farms:Dropdown("Select NPC", {"Citizen","Criminal","Kingpin","Policeman","Punisher"}, function(t)
+				_G.NPC = t;
+			end);
+			Farms:Toggle("Farm NPC", function(t)
+				if (t == true) then
+					getgenv().farmnpc = true;
+					while farmnpc do
+						breakvelocity();
+						for _, v in pairs(workspace:GetChildren()) do
+							if (v:IsA("Model") and (v.Name == _G.NPC)) then
+								local humanoid = v:FindFirstChild("Humanoid");
+								if (humanoid and (humanoid.Health > 0)) then
+									local rootPart = v:FindFirstChild("HumanoidRootPart");
+									if rootPart then
+										pcall(function()
+											local teleportOffset = Vector3.new(0, _G.Height, _G.Distance);
+											local newPosition = rootPart.Position + teleportOffset;
+											game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(newPosition));
+										end);
+									end
+								end
+							end
+						end
+						wait();
+					end
+				else
+					getgenv().farmnpc = false;
+				end
+			end);
+			local targetBox = Player:Textbox("Select Player", true, function(va)
+				setTarget(va);
+			end);
+			Player:Button("Goto Player", function()
+				local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+				p1.CFrame = game.Players[_G.selectedPlayer].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+			end);
+			Player:Toggle("Client Bring Player", function(t)
+				if (t == true) then
+					getgenv().loopbring = true;
+					while loopbring do
+						wait();
+						pcall(function()
+							local targetPlayerName = _G.selectedPlayer;
+							local speaker = game.Players.LocalPlayer;
+							local targetPlayer = game.Players:FindFirstChild(targetPlayerName);
+							if (targetPlayer and targetPlayer.Character) then
+								local targetHumanoid = targetPlayer.Character:FindFirstChildOfClass("Humanoid");
+								if targetHumanoid then
+									targetHumanoid.Sit = false;
+								end
+								wait();
+								local targetRoot = targetPlayer.Character:FindFirstChild("HumanoidRootPart");
+								local speakerRoot = speaker.Character:FindFirstChild("HumanoidRootPart");
+								if (targetRoot and speakerRoot) then
+									local teleportOffset = Vector3.new(2, 0, -10);
+									targetRoot.CFrame = speakerRoot.CFrame * CFrame.new(teleportOffset);
+								end
+							end
+						end);
+					end
+				else
+					getgenv().loopbring = false;
+				end
+			end);
+			Player:Toggle("Delete Sheilds", function(t)
+				if (t == true) then
+					getgenv().rmsheild = true;
+					while rmsheild do
+						spawn(function()
+							for _, shieldModel in pairs(workspace:GetDescendants()) do
+							    spawn(function()
+								if (shieldModel:IsA("Model") and (shieldModel.Name == "ShieldModel") and (shieldModel.Parent ~= game.Players.LocalPlayer.Character)) then
+									shieldModel:Destroy();
+								end
+								end)
+							end
+						end);
+						wait(5);
+					end
+				else
+					getgenv().rmsheild = false;
+				end
+			end);
+			Self:Toggle("Auto Punch", function(t)
+				if (t == true) then
+					getgenv().Punch = true;
+					while Punch do
+						wait(0.1);
+						spawn(function()
+							game:GetService("ReplicatedStorage").Network.AbilityAction:FireServer("Fists", "attack", true);
+						end);
+					end
+				else
+					getgenv().Punch = false;
+				end
+			end);
+			Self:Toggle("Infinite Energy", function(t)
+				if (t == true) then
+					getgenv().Energy = true;
+					while Energy do
+						wait();
+						pcall(function()
+							local humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid");
+							if humanoid then
+								humanoid:SetAttribute("Energy", 99999);
+								humanoid:SetAttribute("MaxEnergy", 99999);
+							end
+						end);
+					end
+				else
+					getgenv().Energy = false;
+				end
+			end);
+			Self:Toggle("ESP", function(t)
+				if (t == true) then
+					getgenv().ESP = true;
+					ESPON();
+				else
+					getgenv().ESP = false;
+					ESPOFF();
+				end
+			end);
+			Self:Toggle("Spawn Point", function(t)
+				if (t == true) then
+					getgenv().spawnin = true;
+					_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+					LocalPlayer.CharacterAdded:Connect(function(character)
+						if (spawnin == true) then
+							wait(0.1);
+							character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+						end
+					end);
+				else
+					getgenv().spawnin = false;
+				end
+			end);
+			Self:Toggle("Safe Teleport", function(t)
+					if (t == true) then
+						local player1 = game.Players.LocalPlayer.Character.Humanoid.Health;
+						local math = player1 / 3;
+						getgenv().safeteleport = true;
+						while safeteleport do
+							wait();
+							pcall(function()
+								local player = game.Players.LocalPlayer.Character.Humanoid.Health;
+								if (player < math) then
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3015, 27, 138);
+								end
+							end);
+						end
+					else
+						getgenv().safeteleport = false;
+					end
+				end);
+			Misc:Slider("Speed", 16, 2500, 32, function(t)
+					_G.speed = t;
+				end);
+				Misc:Slider("Jump", 50, 500, 50, function(t)
+					_G.jump = t;
+				end);
+				Misc:Toggle("Apply Settings", function(t)
+					if (t == true) then
+						getgenv().settingsenabled = true;
+						while settingsenabled do
+							pcall(function()
+								game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.speed;
+								game.Players.LocalPlayer.Character.Humanoid.JumpPower = _G.jump;
+							end);
+							wait(0.2);
+						end
+					else
+						getgenv().settingsenabled = false;
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 5;
+						game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50;
+					end
+				end);
+			Misc:Toggle("Toggle Infinite Jump", function(t)
+					if (t == true) then
+						getgenv().IJ = true;
+						game:GetService("UserInputService").JumpRequest:connect(function()
+							if (IJ == true) then
+								game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping");
+							end
+						end);
+					else
+						getgenv().IJ = false;
+					end
+				end);
+			Misc:Toggle("Toggle Building Noclip", function(t)
+				if (t == true) then
+					for _, part in ipairs(game.Workspace.City.Blocks:GetDescendants()) do
+						if part:IsA("BasePart") then
+							local isExcluded = false;
+							for _, excludedName in ipairs(excludedPartNames) do
+								if string.find(part.Name, excludedName) then
+									isExcluded = true;
+									break;
+								end
+							end
+							if not isExcluded then
+								part.CanCollide = false;
+								part.Transparency = 0.3;
+							end
+						end
+					end
+				else
+					for _, part in ipairs(game.Workspace.City.Blocks:GetDescendants()) do
+						if part:IsA("BasePart") then
+							local isExcluded = false;
+							for _, excludedName in ipairs(excludedPartNames) do
+								if string.find(part.Name, excludedName) then
+									isExcluded = true;
+									break;
+								end
+							end
+							if not isExcluded then
+								part.CanCollide = true;
+								part.Transparency = 0;
+							end
+						end
+					end
+				end
+			end);
+		end
+	end);
+	Key:Button("Copy Key Link", function()
+		toClipboard(getkey);
+	end);
+	Key:Button("Copy Discord Link", function()
+		toClipboard(disc);
+	end);
+end

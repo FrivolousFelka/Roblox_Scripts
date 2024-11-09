@@ -1,0 +1,53 @@
+--[[
+ 
+██╗  ██╗███████╗██╗     ██╗ ██████╗ ███████╗ ██████╗     
+██║  ██║██╔════╝██║     ██║██╔═══██╗██╔════╝██╔═══██╗    
+███████║█████╗  ██║     ██║██║   ██║███████╗██║   ██║    
+██╔══██║██╔══╝  ██║     ██║██║   ██║╚════██║██║   ██║    
+██║  ██║███████╗███████╗██║╚██████╔╝███████║╚██████╔╝    
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝ ╚═════╝     
+                                                         
+Made By DilapidatedSage
+
+]]--
+
+if (_G.NAME == true) then
+else
+	local VLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/DilapidatedSage/vep_UI/main/vep"))();
+	loadstring(game:HttpGet("https://pastebin.com/raw/tfj7V89h"))();
+	MAINTTL = "Helioso";
+	_G.NAME = true;
+	_G.NAMEValue = true;
+	function toClipboard(String)
+    local clipBoard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
+    if clipBoard then
+        clipBoard(String)
+    else
+
+    end
+    end
+	local window = VLibrary:Window("ENTER NAME HERE");
+	local Key = window:Tab("Key System");
+	Key:Textbox("Enter Key:", true, function(va)
+		if (passkey ~= va) then
+			local message = "";
+			game.StarterGui:SetCore("SendNotification", {Title="INVALID KEY",Text=message,Duration=3});
+		else	
+			if (_G.NAMEValue == false) then
+			else
+				_G.NAMEValue = false;
+				--webhook here
+				local Main = window:Tab("Main");
+				
+				
+			end
+		end
+		
+	end);
+	Key:Button("Copy Key Link", function()
+        toClipboard(getkey)
+    end)
+	Key:Button("Copy Discord Link", function()
+    toClipboard(disc)
+    end)
+end

@@ -1,0 +1,45 @@
+local VLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/DilapidatedSage/vep_UI/main/vep"))()
+
+MAINTTL = "Helioso"
+
+local window = VLibrary:Window("Game Name")
+
+local Main = window:Tab("Main")
+
+Main:Button("Button", function()
+    print("Pressed!")
+end)
+
+Main:Toggle("Toggle", function(t)
+                    if t == true then
+					
+					else
+					
+					end
+                end)
+
+Main:Slider("Slider", 0, 100, 50, function(t)
+    print(t)
+end)
+
+Main:Dropdown("Dropdown", {"option1", "option2"}, function(t)
+    print(t)
+end)
+
+local targetBox = Main:Textbox("Textbox", true, function(va)
+    print(va)
+    setTarget(va)
+end)
+
+function setTarget(va)
+    for i,v in pairs(game.Players:GetChildren()) do
+        if (string.sub(string.lower(v.DisplayName),1,string.len(va))) == string.lower(va) then
+            selectedPlayer = v.Name  
+            print(v.Name)
+            task.wait(1.5)
+            break
+        end
+    end
+end
+
+Main:Label("Label")

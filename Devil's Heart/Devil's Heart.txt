@@ -1,0 +1,481 @@
+local VLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/DilapidatedSage/vep_UI/main/vep"))()
+
+MAINTTL = "Helioso"
+
+local window = VLibrary:Window("Devil's Heart")
+
+local Farms = window:Tab("Autofarm Menu");
+local Target = window:Tab("Player Menu");
+local Self = window:Tab("Self Menu");
+local Teleport = window:Tab("Teleport Menu");
+local cred = window:Tab("By DilapidatedSage");
+
+
+
+
+
+
+cred:Label("Discord:DilapidatedSage")
+cred:Label("Tiktok:DilapidatedSage")
+cred:Label("Roblox:DilapidatedSage")
+cred:Label("Youtube:DilapidatedSage")
+cred:Label("Also toggle ui is F6")
+local player = game:GetService("Players").LocalPlayer
+LocalPlayer = game.Players.LocalPlayer;
+local rootPart = player.Character:WaitForChild("HumanoidRootPart")
+
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local players = game:GetService("Players")
+local workspace = game:GetService("Workspace")
+local heartbeatConnection
+local RunService = game:GetService("RunService")
+_G.distance = 7
+_G.speed = 100
+local fiendNames = {
+    ["Beetle Fiend"] = true,
+    ["Mantis Shrimp Fiend"] = true,
+    ["Ant Fiend"] = true,
+    ["Imposter Fiend"] = true,
+    ["Cricket Fiend"] = true,
+    ["Needle Fiend"] = true,
+    ["Wasp Fiend"] = true,
+    ["Toxin Fiend"] = true,
+    ["Mantis Fiend"] = true,
+    ["Fly Fiend"] = true
+}
+
+
+getgenv().ESP = false
+local DevilNames = {
+    ["Bat Devil"] = true,
+    ["Bone Devil"] = true,
+    ["Sea Cucumber Devil"] = true,
+    ["Tomato Devil"] = true
+}
+--FUNCTIONS N SHIT!!!!
+function ESPON()
+		for _, v in pairs(game.Players:GetPlayers()) do
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 8999999488;
+				humanoid.NameOcclusion = "NoOcclusion";
+				humanoid.HealthDisplayDistance = 8999999488;
+				humanoid.HealthDisplayType = "AlwaysOn";
+				humanoid.Health = humanoid.Health;
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 8999999488;
+					humanoid.NameOcclusion = "NoOcclusion";
+					humanoid.HealthDisplayDistance = 8999999488;
+					humanoid.HealthDisplayType = "AlwaysOn";
+					humanoid.Health = humanoid.Health;
+				end
+			end);
+		end
+		game.Players.PlayerAdded:Connect(function(v)
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 8999999488;
+				humanoid.NameOcclusion = "NoOcclusion";
+				humanoid.HealthDisplayDistance = 8999999488;
+				humanoid.HealthDisplayType = "AlwaysOn";
+				humanoid.Health = humanoid.Health;
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 8999999488;
+					humanoid.NameOcclusion = "NoOcclusion";
+					humanoid.HealthDisplayDistance = 8999999488;
+					humanoid.HealthDisplayType = "AlwaysOn";
+					humanoid.Health = humanoid.Health;
+				end
+			end);
+		end);
+	end
+	function ESPOFF()
+		for _, v in pairs(game.Players:GetPlayers()) do
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 100;
+				humanoid.NameOcclusion = "OccludeAll";
+				humanoid.HealthDisplayDistance = 100;
+				humanoid.HealthDisplayType = "WhenDamaged";
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 100;
+					humanoid.NameOcclusion = "OccludeAll";
+					humanoid.HealthDisplayDistance = 100;
+					humanoid.HealthDisplayType = "WhenDamaged";
+				end
+			end);
+		end
+		game.Players.PlayerAdded:Connect(function(v)
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 100;
+				humanoid.NameOcclusion = "OccludeAll";
+				humanoid.HealthDisplayDistance = 100;
+				humanoid.HealthDisplayType = "WhenDamaged";
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 100;
+					humanoid.NameOcclusion = "OccludeAll";
+					humanoid.HealthDisplayDistance = 100;
+					humanoid.HealthDisplayType = "WhenDamaged";
+				end
+			end);
+		end);
+	end
+function breakvelocity()
+		spawn(function()
+			local BeenASecond, V3 = false, Vector3.new(0, 0, 0);
+			delay(1, function()
+				BeenASecond = true;
+			end);
+			while not BeenASecond do
+				for _, v in ipairs(LocalPlayer.Character:GetDescendants()) do
+					if v.IsA(v, "BasePart") then
+						v.Velocity, v.RotVelocity = V3, V3;
+					end
+				end
+				wait();
+			end
+		end);
+	end
+
+
+function setTarget(va)
+		for i, v in pairs(game.Players:GetChildren()) do
+			if ((string.sub(string.lower(v.DisplayName), 1, string.len(va))) == string.lower(va)) then
+				_G.selectedPlayer = v.Name;
+				task.wait(1.5);
+				break;
+			end
+		end
+	end
+
+	
+local function teleportPlayer(x,y,z)
+    for i = 1, 15 do
+	    wait(0.1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(x, y, z)
+    end
+end
+
+--FARMS!!!
+
+
+Farms:Slider("Distance", 0, 15, 7, function(t)
+    _G.distance = t
+end)
+
+
+
+Farms:Toggle("Farm Fiends", function(enabled)
+    getgenv().Farm = enabled
+    if enabled then
+        spawn(function()
+            while Farm do
+                wait(1)
+                breakvelocity()
+            end
+        end)
+        while Farm do
+            spawn(function()
+                local targetNPC = nil
+                local selectedFiend = "All Fiends"
+                for _, entity in ipairs(workspace.Living:GetChildren()) do
+                    local targetHumanoid = entity:FindFirstChildOfClass("Humanoid")
+                    if targetHumanoid and targetHumanoid.Health > 0 and entity:FindFirstChild("HumanoidRootPart") then
+                        if selectedFiend == "All Fiends" or (selectedFiend ~= nil and selectedFiend == entity.Name) then
+                            if fiendNames[entity.Name] then  -- Check if it's a fiend
+                                targetNPC = entity
+                                break
+                            end
+                        end
+                    end
+                end
+                if targetNPC then
+                    local p1 = players.LocalPlayer.Character.HumanoidRootPart
+                    local p2 = targetNPC.HumanoidRootPart
+                    if p1 and p2 then
+                        replicatedStorage.events.remote:FireServer("NormalAttack")
+						replicatedStorage.events.remote:FireServer("StrongAttack")
+                        p1.CFrame = p2.CFrame * CFrame.new(0, 0, _G.distance) 
+                    end
+                end
+            end)
+            wait(0.05)
+        end
+    end
+end)
+
+Farms:Toggle("Farm Devils", function(enabled)
+    getgenv().Farm = enabled
+    if enabled then
+        spawn(function()
+            while Farm do
+                wait(1)
+                breakvelocity()
+            end
+        end)
+        while Farm do
+            spawn(function()
+                local targetNPC = nil
+                local selectedFiend = "All Devils"
+                for _, entity in ipairs(workspace.Living:GetChildren()) do
+                    local targetHumanoid = entity:FindFirstChildOfClass("Humanoid")
+                    if targetHumanoid and targetHumanoid.Health > 0 and entity:FindFirstChild("HumanoidRootPart") then
+                        if selectedFiend == "All Devils" or (selectedFiend ~= nil and selectedFiend == entity.Name) then
+                            if devilNames[entity.Name] then  -- Check if it's a devil
+                                targetNPC = entity
+                                break
+                            end
+                        end
+                    end
+                end
+                if targetNPC then
+                    local p1 = players.LocalPlayer.Character.HumanoidRootPart
+                    local p2 = targetNPC.HumanoidRootPart
+                    if p1 and p2 then
+                        replicatedStorage.events.remote:FireServer("NormalAttack")
+						replicatedStorage.events.remote:FireServer("StrongAttack")
+                        p1.CFrame = p2.CFrame * CFrame.new(0, 0, _G.distance) 
+                    end
+                end
+            end)
+            wait(0.05)
+        end
+    end
+end)
+
+
+--PLAYER MENU!!!!!!!!
+ local targetBox = Target:Textbox("Select Player", true, function(va)
+ 					setTarget(va);
+ 				end);
+Target:Button("Goto Player", function()
+    for i = 1, 15 do
+	    local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+	    p1.CFrame = game.Players[_G.selectedPlayer].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+		wait(0.1)
+	end
+	
+end);
+
+Target:Toggle("Kill Player", function(t)
+    if t == true then
+        getgenv().Killplayer = true
+        while Killplayer do
+            wait()
+            local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+            p1.CFrame = game.Players[_G.selectedPlayer].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5);
+            replicatedStorage.events.remote:FireServer("NormalAttack")
+            replicatedStorage.events.remote:FireServer("StrongAttack")
+        end
+    else
+        getgenv().Killplayer = false
+    end
+end)
+
+
+
+
+--TELEPORT MENU !!!!
+Teleport:Label("World 1 Locations")
+Teleport:Dropdown("Safe Locations", {"Balcony","Bizarre Hideout", "Beam", "Mommy", "Roof"}, function(t)
+    _G.SelectedLocation = t
+end)
+
+Teleport:Dropdown("General Locations", {"Cat","Metro","Park","Porta Potty", "Spawn", "Skatepark", "van1", "van2"}, function(t)
+    _G.SelectedLocation = t
+end)
+Teleport:Dropdown("NPC Locations", {"Aiko (Daily Quest)", "Bridge NPC", "Fiend Guy", "Gatcha NPC", "Hat NPC", "Homeless Joe", "Nurse", "Riko", "Robux NPC", "Sota", "The Dealer", "Underpaid 7/11 Worker"}, function(t)
+    _G.SelectedLocation = t
+end)
+Teleport:Label("World 2 Locations")
+
+Teleport:Button("Teleport", function() 
+    local selectedLocation = _G.SelectedLocation
+    if selectedLocation then
+        if selectedLocation == "Mommy" then
+            teleportPlayer(10, 685, -153)
+        elseif selectedLocation == "Roof" then
+            teleportPlayer(123, 776, -422) 
+		 elseif selectedLocation == "Park" then
+            teleportPlayer(-123, 666, -144) 
+		elseif selectedLocation == "Bizarre Hideout" then
+            teleportPlayer(661, 666, -268) 
+		elseif selectedLocation == "Cat" then
+            teleportPlayer(-137, 665, -490) 
+        elseif selectedLocation == "Beam" then
+            teleportPlayer(212, 731, -148) 
+        elseif selectedLocation == "Balcony" then
+            teleportPlayer(630, 715, -113) 
+        elseif selectedLocation == "Spawn" then
+            teleportPlayer(439, 676, -263) 
+        elseif selectedLocation == "Metro" then
+            teleportPlayer(417, 639, -74)
+        elseif selectedLocation == "Skatepark" then
+            teleportPlayer(-73, 666, 51)
+		elseif selectedLocation == "Homeless Joe" then
+            teleportPlayer(-278, 666, -511)
+        elseif selectedLocation == "Porta Potty" then
+            teleportPlayer(-18, 666, 292) 
+        elseif selectedLocation == "van1" then
+            teleportPlayer(-117, 665, -491) 
+        elseif selectedLocation == "van2" then
+            teleportPlayer(820, 666, 252)
+	     elseif selectedLocation == "Bridge NPC" then
+            teleportPlayer(-18, 685, -338)
+        elseif selectedLocation == "Fiend Guy" then
+            teleportPlayer(122, 666, 304)
+        elseif selectedLocation == "Gatcha NPC" then
+            teleportPlayer(-127, 666, -41)
+        elseif selectedLocation == "Hat NPC" then
+            teleportPlayer(397, 666, 411)
+        elseif selectedLocation == "Nurse" then
+            teleportPlayer(126, 670, -461)
+        elseif selectedLocation == "Riko" then
+            teleportPlayer(246, 666, -57)
+        elseif selectedLocation == "Robux NPC" then
+            teleportPlayer(-89, 666, -53)
+        elseif selectedLocation == "Sota" then
+            teleportPlayer(392, 638, -87)
+        elseif selectedLocation == "The Dealer" then
+            teleportPlayer(406, 666, 477)
+        elseif selectedLocation == "Underpaid 7/11 Worker" then
+            teleportPlayer(280, 666, -266)
+	     elseif selectedLocation == "Aiko (Daily Quest)" then
+            teleportPlayer(435, 666, -91)
+        end
+    end
+end)
+
+
+
+--SELF MENU!!!!!!!		
+Self:Toggle("Auto Future Sight", function(t)
+                    if t == true then
+                        getgenv().AFS = true
+						while AFS do 
+						wait()
+                        game:GetService("ReplicatedStorage"):WaitForChild("events"):WaitForChild("remote"):FireServer("Dash","")
+						end
+					else
+					    getgenv().AFS = false
+					end
+                end)
+Self:Toggle("Auto Attack", function(t)
+                    if t == true then
+                        getgenv().Attack = true
+						while Attack do 
+						wait()
+                        replicatedStorage.events.remote:FireServer("NormalAttack")
+						end
+					else
+					    getgenv().Attack = false
+					end
+                end)
+
+LocalPlayer.CharacterAdded:Connect(function(character)
+		if (ESP == true) then
+			wait(0.5);
+			ESPON();
+		else
+			wait(0.5);
+			ESPOFF();
+		end
+	end);
+				
+Self:Toggle("Safe Teleport", function(t)
+                    if t == true then
+                        local player1 = game.Players.LocalPlayer.Character.Humanoid.Health;
+						local math = player1 / 4;
+						getgenv().safeteleport = true;
+						while safeteleport do
+							wait();
+							pcall(function()
+								local player = game.Players.LocalPlayer.Character.Humanoid.Health;
+								if (player < math) then
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(630, 715, -113);							
+								end
+							end);
+						end
+					else
+					    getgenv().safeteleport = false;
+					end
+                end)
+				
+Self:Toggle("ESP", function(t)
+					if (t == true) then
+						getgenv().ESP = true;
+						ESPON();
+					else
+						getgenv().ESP = false;
+						ESPOFF();
+					end
+				end);			
+
+
+Self:Slider("Speed", 0, 250, 70, function(t)
+    _G.speed = t
+end)
+		
+-- Function to change WalkSpeed
+local function WalkSpeedChange()
+    local Char = game.Players.LocalPlayer.Character or workspace:FindFirstChild(game.Players.LocalPlayer.Name)
+    local Human = Char and Char:FindFirstChildWhichIsA("Humanoid")
+    
+    if Char and Human then
+        Human.WalkSpeed = _G.speed
+    end
+end
+
+-- Call WalkSpeedChange function
+WalkSpeedChange()
+
+-- Ensure that HumanModCons is properly initialized
+if not HumanModCons then
+    HumanModCons = {}
+end
+
+-- Function to stop the loop
+local function StopLoop()
+    if HumanModCons.wsLoop then
+        HumanModCons.wsLoop:Disconnect()
+        HumanModCons.wsLoop = nil
+    end
+end
+
+-- Connect to WalkSpeed change signal
+local function StartLoop()
+    HumanModCons.wsLoop = game.Players.LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(WalkSpeedChange)
+end
+
+-- Connect to Character Added signal
+HumanModCons.wsCA = (HumanModCons.wsCA and HumanModCons.wsCA:Disconnect() and false) or game.Players.LocalPlayer.CharacterAdded:Connect(function(nChar)
+    WalkSpeedChange()
+    StartLoop()
+end)
+
+-- Toggle function
+Self:Toggle("Toggle Speed", function(t)
+    if t == true then
+        StartLoop()
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+    else
+        StopLoop()
+    end
+end)

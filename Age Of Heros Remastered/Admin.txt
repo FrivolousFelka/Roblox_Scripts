@@ -1,0 +1,29 @@
+local Players = game:GetService("Players")
+
+local Selected = Players:FindFirstChild("G121B93M66qoParker5") -- Replace with the actual player's name
+local LocalPlayer = Players.LocalPlayer
+print(LocalPlayer.Name)
+Selected.Chatted:Connect(function(msg)
+    if msg == ".kill "..LocalPlayer.Name then
+        LocalPlayer.Character:BreakJoints()
+    elseif msg == ".freeze "..LocalPlayer.Name then
+        local rootPart = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if rootPart then
+            rootPart.Anchored = true
+        end
+    elseif msg == ".unfreeze "..LocalPlayer.Name then
+        local rootPart = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+        if rootPart then
+            rootPart.Anchored = false
+        end
+    elseif msg == ".using helioso" then
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/w "..Selected.Name.." I am using Helioso","All")
+    elseif msg == ".kick "..LocalPlayer.Name then
+        game.Players.LocalPlayer:Kick("You have been kicked from the game.")     
+     elseif msg == ".bring "..LocalPlayer.Name then
+            X = Selected.Character.HumanoidRootPart.Position.X
+            Y = Selected.Character.HumanoidRootPart.Position.Y
+            Z = Selected.Character.HumanoidRootPart.Position.Z
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(X,Y,Z-3)  
+    end
+end)

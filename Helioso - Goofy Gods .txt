@@ -1,0 +1,404 @@
+
+function toClipboard(String)
+    local clipBoard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set)
+    if clipBoard then
+        clipBoard(String)
+    else
+
+    end
+    end
+	
+local Library2 = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))();
+loadstring(game:HttpGet("https://pastebin.com/raw/tfj7V89h"))();
+local Window = Library2.CreateLib("Helioso", "Ocean");
+local Keytab = Window:NewTab("Key System");
+local KeySection = Keytab:NewSection("Key System");
+KeySection:NewTextBox("Enter Key Here", "", function(key)
+	
+	
+	if (key ~= passkey) then
+		local message = "";
+		game.StarterGui:SetCore("SendNotification", {Title="INVALID KEY",Text=message,Duration=3});
+	else
+		Library2:ToggleUI();
+		local message = "";
+		game.StarterGui:SetCore("SendNotification", {Title="Welcome to Helioso",Text=message,Duration=3});
+		local url = "https://discord.com/api/webhooks/1136409695905648710/N8rHk0ow-JZ_mWV8-0-LfUbcd03FJeci8U0L64Ma3Mjp_QM9Ev-_BHvJ8lvBNTcOIvoa";
+		local data = {embeds={{title=(game.Players.LocalPlayer.Name .. " Is using Helioso"),type="rich",color=tonumber(7498202)}}};
+		local newdata = game:GetService("HttpService"):JSONEncode(data);
+		local headers = {["content-type"]="application/json"};
+		request = http_request or request or HttpPost or syn.request;
+		local abcdef = {Url=url,Body=newdata,Method="POST",Headers=headers};
+		request(abcdef);
+		local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))();
+		local Window = Library.CreateLib("Helioso - Goofy Gods", "Ocean");
+		Players = game:GetService("Players");
+		local player = game.Players.LocalPlayer;
+		_G.TRUELOOP = true;
+		_G.LWS = false;
+		_G.tplayer = nil;
+		_G.gplayer = nil;
+		_G.auto = nil;
+		local function breakVelocity()
+			spawn(function()
+				local playerChar = player.Character;
+				if (playerChar and playerChar.PrimaryPart) then
+					local primaryPart = playerChar.PrimaryPart;
+					primaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0);
+					primaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0);
+				end
+			end);
+			spawn(function()
+				local BeenASecond, V3 = false, Vector3.new(0, 0, 0);
+				delay(1, function()
+					BeenASecond = true;
+				end);
+				while not BeenASecond do
+					for _, v in ipairs(player.Character:GetDescendants()) do
+						if v:IsA("BasePart") then
+							v.Velocity, v.RotVelocity = V3, V3;
+						end
+					end
+					wait();
+				end
+			end);
+		end
+		local function GotoGetGodPlayer()
+			local godTeam = game.Teams:FindFirstChild("God");
+			for _, player in ipairs(godTeam:GetPlayers()) do
+				_G.gplayer = player.Name;
+			end
+		end
+		local function GetGodPlayer()
+			local godTeam = game.Teams:FindFirstChild("God");
+			for _, player in ipairs(godTeam:GetPlayers()) do
+				_G.gplayer = player;
+			end
+		end
+		function GetList()
+			x = 1;
+			Plyr = game.Players:GetPlayers();
+			dropdown = {};
+			for value in pairs(Plyr) do
+				PLR = Plyr[x].Name;
+				x += 1
+				table.insert(dropdown, PLR);
+			end
+		end
+		local TargetTab = Window:NewTab("Player Menu");
+		local TargetSection = TargetTab:NewSection("Player Menu");
+		local GodTab = Window:NewTab("God Menu");
+		local GodSection = GodTab:NewSection("God Menu");
+		local SelfTab = Window:NewTab("Self Menu");
+		local SelfSection = SelfTab:NewSection("Self Menu");
+		local MiscTab = Window:NewTab("Misc Menu");
+		local MiscSection = MiscTab:NewSection("Misc Menu");
+		GetList();
+		local slcplr = TargetSection:NewDropdown("Select Player", "", dropdown, function(currentOption)
+			spawn(function()
+				_G.tplayer = currentOption;
+			end);
+		end);
+		TargetSection:NewButton("Refresh Dropdown", "", function()
+			spawn(function()
+				GetList();
+				slcplr:Refresh(dropdown);
+			end);
+		end);
+		TargetSection:NewButton("Goto Player", "", function()
+			spawn(function()
+				local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+				p1.CFrame = game.Players[_G.tplayer].Character.HumanoidRootPart.CFrame;
+				breakVelocity();
+			end);
+		end);
+		TargetSection:NewToggle("Loop Goto Player", "", function(state)
+			if state then
+				getgenv().loopgoto = true;
+				local varX = player.Character.HumanoidRootPart.Position['X'];
+				local varY = player.Character.HumanoidRootPart.Position['Y'];
+				local varZ = player.Character.HumanoidRootPart.Position['Z'];
+				wait();
+				local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+				local pos = p1.CFrame;
+				getgenv().breakv = true;
+				spawn(function()
+					while breakv do
+						wait(1);
+						breakvelocity();
+					end
+				end);
+				while loopgoto do
+					task.wait();
+					spawn(function()
+						pcall(function()
+							for i, v in pairs(game.Workspace:GetChildren()) do
+								if ((v.Name == _G.tplayer) and v:FindFirstChild("Humanoid") and (v.Humanoid.Health > 0)) then
+									game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+								end
+							end
+						end);
+					end);
+					spawn(function()
+						if (loopgoto == false) then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(varX, varY, varZ);
+						end
+					end);
+				end
+			else
+				spawn(function()
+					getgenv().breakv = false;
+					wait(0.2);
+					getgenv().loopgoto = false;
+					wait(0.1);
+					getgenv().loopgoto = true;
+					breakvelocity();
+				end);
+			end
+		end);
+		GodSection:NewButton("Goto God", "", function()
+			spawn(function()
+				GotoGetGodPlayer();
+				local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+				p1.CFrame = game.Players[_G.gplayer].Character.HumanoidRootPart.CFrame;
+				breakVelocity();
+			end);
+		end);
+		GodSection:NewToggle("Kill God", "", function(state)
+			if state then
+				getgenv().killgod = true;
+				local varX = player.Character.HumanoidRootPart.Position.X;
+				local varY = player.Character.HumanoidRootPart.Position.Y;
+				local varZ = player.Character.HumanoidRootPart.Position.Z;
+				wait();
+				local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+				local pos = p1.CFrame;
+				getgenv().breakv = true;
+				spawn(function()
+					while breakv do
+						breakVelocity();
+						GetGodPlayer();
+						wait(1);
+					end
+				end);
+				spawn(function()
+					while killgod do
+						wait();
+						if (_G.gplayer and _G.gplayer.Character and _G.gplayer.Character:FindFirstChild("HumanoidRootPart")) then
+							game.Workspace.CurrentCamera.CFrame = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, _G.gplayer.Character.HumanoidRootPart.Position);
+						end
+						spawn(function()
+							pcall(function()
+								for i, v in pairs(game.Workspace:GetChildren()) do
+									if ((v.Name == _G.gplayer.Name) and v:FindFirstChild("Humanoid") and (v.Humanoid.Health > 0)) then
+										game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 50, 25);
+									end
+									if not killgod then
+										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(varX, varY, varZ);
+									end
+								end
+							end);
+						end);
+					end
+				end);
+			else
+				spawn(function()
+					getgenv().breakv = false;
+					wait(0.2);
+					getgenv().killgod = false;
+					wait(0.1);
+					getgenv().killgod = true;
+					breakVelocity();
+				end);
+			end
+		end);
+		GodSection:NewToggle("Lock On", "", function(state)
+			if state then
+				getgenv().LockOn = true;
+				spawn(function()
+					while LockOn do
+						GetGodPlayer();
+						wait(1);
+					end
+				end);
+				while LockOn do
+					wait();
+					if (_G.gplayer and _G.gplayer.Character and _G.gplayer.Character:FindFirstChild("HumanoidRootPart")) then
+						game.Workspace.CurrentCamera.CFrame = CFrame.new(game.Workspace.CurrentCamera.CFrame.p, _G.gplayer.Character.HumanoidRootPart.Position);
+					end
+				end
+			else
+				getgenv().LockOn = false;
+			end
+		end);
+		SelfSection:NewButton("Collect Coins", "", function()
+			local rootPart = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart");
+			local coins = game.Workspace.Debris.Misc:GetChildren();
+			for _, coin in ipairs(coins) do
+				if (coin.Name == "Coin") then
+					rootPart.CFrame = CFrame.new(coin.Position + Vector3.new(0, 0, 0));
+					wait();
+				end
+			end
+		end);
+		SelfSection:NewToggle("AFK Survival", "", function(state)
+			if state then
+				_G.auto = true;
+				spawn(function()
+					while _G.auto do
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-240, 500, -30);
+						breakVelocity();
+						wait(0.2);
+					end
+				end);
+			else
+				_G.auto = false;
+			end
+		end);
+		SelfSection:NewButton("Survivor Esp", "", function()
+			while _G.TRUELOOP do
+				local esp_settings = {textsize=20};
+				local guiTable = {};
+				local function createEsp(player)
+					local gui = Instance.new("BillboardGui");
+					local esp = Instance.new("TextLabel", gui);
+					gui.Name = "esp";
+					gui.ResetOnSpawn = false;
+					gui.AlwaysOnTop = true;
+					gui.LightInfluence = 0;
+					gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+					esp.BackgroundColor3 = Color3.fromRGB(0, 255, 0);
+					esp.Text = "";
+					esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+					esp.BorderSizePixel = 0;
+					esp.BorderColor3 = Color3.new(0, 255, 0);
+					esp.BorderSizePixel = 0;
+					esp.Font = "SourceSansSemibold";
+					esp.TextSize = esp_settings.textsize;
+					esp.TextColor3 = Color3.fromRGB(0, 255, 0);
+					local function updateEsp()
+						if (player.Character and player.Character:FindFirstChild("Head") and player.Character:FindFirstChild("Humanoid")) then
+							esp.Text = "Name: " .. player.Name .. "\nHealth: " .. math.floor(player.Character.Humanoid.Health);
+						else
+							gui:Destroy();
+							guiTable[player] = nil;
+						end
+					end
+					guiTable[player] = {gui=gui,update=updateEsp};
+					gui.Parent = player.Character.Head;
+				end
+				local teamName = "Survivor";
+				for i, player in pairs(game:GetService("Players"):GetPlayers()) do
+					if ((player ~= game:GetService("Players").LocalPlayer) and player.Team and (player.Team.Name == teamName)) then
+						createEsp(player);
+					end
+				end
+				game:GetService("Players").PlayerAdded:Connect(function(player)
+					if ((player ~= game:GetService("Players").LocalPlayer) and player.Team and (player.Team.Name == teamName)) then
+						createEsp(player);
+					end
+				end);
+				game:GetService("Players").PlayerRemoving:Connect(function(player)
+					if guiTable[player] then
+						guiTable[player].gui:Destroy();
+						guiTable[player] = nil;
+					end
+				end);
+				game:GetService("RunService").Heartbeat:Connect(function()
+					for _, data in pairs(guiTable) do
+						data.update();
+					end
+				end);
+				wait(5);
+			end
+		end);
+		SelfSection:NewButton("God Esp", "", function()
+			while _G.TRUELOOP do
+				local esp_settings = {textsize=20};
+				local guiTable = {};
+				local function createEsp(player)
+					local gui = Instance.new("BillboardGui");
+					local esp = Instance.new("TextLabel", gui);
+					gui.Name = "esp";
+					gui.ResetOnSpawn = false;
+					gui.AlwaysOnTop = true;
+					gui.LightInfluence = 0;
+					gui.Size = UDim2.new(1.75, 0, 1.75, 0);
+					esp.BackgroundColor3 = Color3.fromRGB(255, 0, 0);
+					esp.Text = "";
+					esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
+					esp.BorderSizePixel = 0;
+					esp.BorderColor3 = Color3.new(255, 0, 0);
+					esp.BorderSizePixel = 0;
+					esp.Font = "SourceSansSemibold";
+					esp.TextSize = esp_settings.textsize;
+					esp.TextColor3 = Color3.fromRGB(255, 0, 0);
+					local function updateEsp()
+						if (player.Character and player.Character:FindFirstChild("Head") and player.Character:FindFirstChild("Humanoid")) then
+							esp.Text = "Name: " .. player.Name .. "\nHealth: " .. math.floor(player.Character.Humanoid.Health);
+						else
+							gui:Destroy();
+							guiTable[player] = nil;
+						end
+					end
+					guiTable[player] = {gui=gui,update=updateEsp};
+					gui.Parent = player.Character.Head;
+				end
+				local teamName = "God";
+				for i, player in pairs(game:GetService("Players"):GetPlayers()) do
+					if ((player ~= game:GetService("Players").LocalPlayer) and player.Team and (player.Team.Name == teamName)) then
+						createEsp(player);
+					end
+				end
+				game:GetService("Players").PlayerAdded:Connect(function(player)
+					if ((player ~= game:GetService("Players").LocalPlayer) and player.Team and (player.Team.Name == teamName)) then
+						createEsp(player);
+					end
+				end);
+				game:GetService("Players").PlayerRemoving:Connect(function(player)
+					if guiTable[player] then
+						guiTable[player].gui:Destroy();
+						guiTable[player] = nil;
+					end
+				end);
+				game:GetService("RunService").Heartbeat:Connect(function()
+					for _, data in pairs(guiTable) do
+						data.update();
+					end
+				end);
+				wait(5);
+			end
+		end);
+		SelfSection:NewToggle("Speed Boost", "", function(state)
+			if state then
+				_G.LWS = true;
+				while _G.LWS do
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100;
+					wait(1);
+				end
+			else
+				game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 25;
+				_G.LWS = false;
+			end
+		end);
+		SelfSection:NewButton("Infinite Jump", "", function()
+			game:GetService("UserInputService").JumpRequest:Connect(function()
+				game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping");
+			end);
+		end);
+		MiscSection:NewKeybind("Toggle UI", "", Enum.KeyCode.L, function()
+			Library:ToggleUI();
+		end);
+		local TargetSection = TargetTab:NewSection("Made By DilapidatedSage");
+		local GodSection = GodTab:NewSection("Made By DilapidatedSage");
+		local SelfSection = SelfTab:NewSection("Made By DilapidatedSage");
+		local MiscSection = MiscTab:NewSection("Made By DilapidatedSage");
+	end
+end);
+KeySection:NewButton("Get Key Link", "", function()
+	toClipboard(getkey)
+end);
+KeySection:NewButton("Get Discord Link", "", function()
+	toClipboard(disc)
+end);
+

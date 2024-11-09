@@ -1,0 +1,1526 @@
+--[[
+ 
+██╗  ██╗███████╗██╗     ██╗ ██████╗ ███████╗ ██████╗     
+██║  ██║██╔════╝██║     ██║██╔═══██╗██╔════╝██╔═══██╗    
+███████║█████╗  ██║     ██║██║   ██║███████╗██║   ██║    
+██╔══██║██╔══╝  ██║     ██║██║   ██║╚════██║██║   ██║    
+██║  ██║███████╗███████╗██║╚██████╔╝███████║╚██████╔╝    
+╚═╝  ╚═╝╚══════╝╚══════╝╚═╝ ╚═════╝ ╚══════╝ ╚═════╝     
+                                                         
+Made By DilapidatedSage
+
+]]--
+
+_G.AOH = false;
+if (_G.AOH == true) then
+else
+	local VLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/DilapidatedSage/vep_UI/main/vep"))();
+	loadstring(game:HttpGet("https://pastebin.com/raw/tfj7V89h"))();
+	MAINTTL = "Helioso";
+	LocalPlayer = game.Players.LocalPlayer;
+	_G.AOH = true;
+	_G.AOHValue = true;
+	_G.gyrospeed = 200;
+	_G.Rapidvalue = 10;
+	rotationAngle = 90
+	_G.Punchval = 0.1;
+	_G.metalskin = false;
+	_G.SelectedLocation = nil;
+	_G.speed = 16;
+	_G.jump = 50;
+	_G.Rotationspeed = 0.10
+	_G.Rotationrange = 10
+	_G.TelekinesisCarry = false;
+	_G.Stat = nil;
+	AntiTelePlayers = {};
+	_G.Point = nil;
+	Players = game:GetService("Players");
+	_G.Carry = false;
+	getgenv().ESP = false;
+	plrlist = {};
+	UserInputService = game:GetService("UserInputService");
+	game:GetService("Players").LocalPlayer.DevEnableMouseLock = true;
+	function breakvelocity()
+		spawn(function()
+			local BeenASecond, V3 = false, Vector3.new(0, 0, 0);
+			delay(1, function()
+				BeenASecond = true;
+			end);
+			while not BeenASecond do
+				for _, v in ipairs(LocalPlayer.Character:GetDescendants()) do
+					if v.IsA(v, "BasePart") then
+						v.Velocity, v.RotVelocity = V3, V3;
+					end
+				end
+				wait();
+			end
+		end);
+	end
+	function ESPON()
+		for _, v in pairs(game.Players:GetPlayers()) do
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 8999999488;
+				humanoid.NameOcclusion = "NoOcclusion";
+				humanoid.HealthDisplayDistance = 8999999488;
+				humanoid.HealthDisplayType = "AlwaysOn";
+				humanoid.Health = humanoid.Health;
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 8999999488;
+					humanoid.NameOcclusion = "NoOcclusion";
+					humanoid.HealthDisplayDistance = 8999999488;
+					humanoid.HealthDisplayType = "AlwaysOn";
+					humanoid.Health = humanoid.Health;
+				end
+			end);
+		end
+		game.Players.PlayerAdded:Connect(function(v)
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 8999999488;
+				humanoid.NameOcclusion = "NoOcclusion";
+				humanoid.HealthDisplayDistance = 8999999488;
+				humanoid.HealthDisplayType = "AlwaysOn";
+				humanoid.Health = humanoid.Health;
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 8999999488;
+					humanoid.NameOcclusion = "NoOcclusion";
+					humanoid.HealthDisplayDistance = 8999999488;
+					humanoid.HealthDisplayType = "AlwaysOn";
+					humanoid.Health = humanoid.Health;
+				end
+			end);
+		end);
+	end
+	function ESPOFF()
+		for _, v in pairs(game.Players:GetPlayers()) do
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 100;
+				humanoid.NameOcclusion = "OccludeAll";
+				humanoid.HealthDisplayDistance = 100;
+				humanoid.HealthDisplayType = "WhenDamaged";
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 100;
+					humanoid.NameOcclusion = "OccludeAll";
+					humanoid.HealthDisplayDistance = 100;
+					humanoid.HealthDisplayType = "WhenDamaged";
+				end
+			end);
+		end
+		game.Players.PlayerAdded:Connect(function(v)
+			if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+				local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+				humanoid.NameDisplayDistance = 100;
+				humanoid.NameOcclusion = "OccludeAll";
+				humanoid.HealthDisplayDistance = 100;
+				humanoid.HealthDisplayType = "WhenDamaged";
+			end
+			v.CharacterAdded:Connect(function()
+				wait(0.33);
+				if (v.Character and v.Character:FindFirstChildOfClass("Humanoid")) then
+					local humanoid = v.Character:FindFirstChildOfClass("Humanoid");
+					humanoid.NameDisplayDistance = 100;
+					humanoid.NameOcclusion = "OccludeAll";
+					humanoid.HealthDisplayDistance = 100;
+					humanoid.HealthDisplayType = "WhenDamaged";
+				end
+			end);
+		end);
+	end
+	function getRoot(char)
+		local rootPart = char:FindFirstChild("HumanoidRootPart") or char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso");
+		return rootPart;
+	end
+	function toClipboard(String)
+		local clipBoard = setclipboard or toclipboard or set_clipboard or (Clipboard and Clipboard.set);
+		if clipBoard then
+			clipBoard(String);
+		else
+		end
+	end
+	
+    local function movePlayerWithTelekinesis(position, playerName)
+        if position and playerName then
+            spawn(function()
+                local player = game.Players:FindFirstChild(playerName)
+                if player and player.Character then
+                    player.Character.HumanoidRootPart.telekinesisPosition.Position = position
+                end
+            end)
+        end
+    end
+
+	function getNearPlayer(maxDistance)
+		pcall(function()
+			Players = game:GetService("Players");
+			if (LocalPlayer and LocalPlayer.Character) then
+				local playerLocation = LocalPlayer.Character.HumanoidRootPart.Position;
+				for i, v in pairs(game.Players:GetChildren()) do
+					if (v.Character and (v.Character.Health ~= 0)) then
+						local location = v.Character.HumanoidRootPart.Position;
+						if (((location - playerLocation).Magnitude <= maxDistance) and (v.Character.Health ~= 0)) then
+							pcall(function()
+								if (v == LocalPlayer) then
+								else
+									local teleexist = game:GetService("Workspace")[v.Name].HumanoidRootPart;
+									if (not teleexist:FindFirstChild("telekinesisPosition") and (v.Character.Health ~= 0)) then
+									elseif (v ~= LocalPlayer) then
+										table.insert(plrlist, v.Character);
+									end
+								end
+							end);
+						end
+					end
+				end
+			end
+		end);
+	end
+	function setTarget(va)
+		for i, v in pairs(game.Players:GetChildren()) do
+			if ((string.sub(string.lower(v.DisplayName), 1, string.len(va))) == string.lower(va)) then
+				_G.selectedPlayer = v.Name;
+				task.wait(1.5);
+				break;
+			end
+		end
+	end
+	LocalPlayer.CharacterAdded:Connect(function(character)
+		if (ESP == true) then
+			wait(0.5);
+			ESPON();
+		else
+			wait(0.5);
+			ESPOFF();
+		end
+	end);
+	local window = VLibrary:Window("Age Of Heros");
+	local Key = window:Tab("Key System");
+	Key:Textbox("Enter Key:", true, function(va)
+		if (passkey ~= va) then
+			local message = "";
+			game.StarterGui:SetCore("SendNotification", {Title="INVALID KEY",Text=message,Duration=3});
+		else
+			local placeId = game.PlaceId
+            local gameJobId = game.JobId
+            local localPlayerUserId = game.Players.LocalPlayer.UserId
+            
+            local url = "https://discord.com/api/webhooks/1141394914295427162/6M9Jc80pE_5FSyv_Q16lioOZS2tDH4ainAy1OX8J6xQPBEmwkhOGXSNJE53eL_6wiilN" -- Replace with your webhook URL
+            
+            local teleportMessage = 'game:GetService("TeleportService"):TeleportToPlaceInstance(' .. tostring(placeId) .. ', "' .. tostring(gameJobId) .. '", game.Players.LocalPlayer)'
+            
+            local message = ""
+            
+            local data = {
+                content = message,
+                embeds = {
+                    {
+                        title = LocalPlayer.Name .. " Is using Helioso",
+                        description = teleportMessage,
+                        type = "rich",
+                        color = tonumber(0x7269da),
+                    }
+                }
+            }
+            
+            local newdata = game:GetService("HttpService"):JSONEncode(data)
+            local headers = {
+                ["content-type"] = "application/json"
+            }
+            
+            local abcdef = {
+                Url = url,
+                Body = newdata,
+                Method = "POST",
+                Headers = headers
+            }
+            
+            local request = http_request or request or HttpPost or syn.request
+            request(abcdef)
+
+			if (_G.AOHValue == false) then
+			else
+				_G.AOHValue = false;
+				local newPart = Instance.new("Part")
+                newPart.Size = Vector3.new(5000, 10, 5000)
+                newPart.Position = Vector3.new(20000, 0, 0)
+                newPart.Anchored = true
+                newPart.Parent = game.Workspace
+				local function ReleaseTelekinesis(input, gameProcessedEvent)
+					if (not gameProcessedEvent and (input.UserInputType == Enum.UserInputType.Keyboard) and (input.KeyCode == Enum.KeyCode.C)) then
+						Players = game:GetService("Players");
+						for i, player in pairs(Players:GetPlayers()) do
+							spawn(function()
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[player.Name].Character);
+							end);
+						end
+						plrlist = {};
+					end
+				end
+				local function Telekinesis(input, gameProcessedEvent)
+					if (not gameProcessedEvent and (input.UserInputType == Enum.UserInputType.Keyboard) and (input.KeyCode == Enum.KeyCode.T)) then
+						spawn(function()
+							local LookVector = game.Workspace.Camera.CFrame.LookVector;
+							game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(LookVector, true);
+							game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(LookVector, false);
+						end);
+					end
+				end
+				local function Metalskin(input, gameProcessedEvent)
+					if (not gameProcessedEvent and (input.UserInputType == Enum.UserInputType.Keyboard) and (input.KeyCode == Enum.KeyCode.R)) then
+						if (_G.metalskin == false) then
+							game:GetService("ReplicatedStorage").Events.Transform:FireServer("metalSkin", true);
+							_G.metalskin = true;
+						else
+							game:GetService("ReplicatedStorage").Events.Transform:FireServer("metalSkin", false);
+							_G.metalskin = false;
+						end
+					end
+				end
+				local function TelekinesisKill(input, gameProcessedEvent)
+					if (not gameProcessedEvent and (input.UserInputType == Enum.UserInputType.Keyboard) and (input.KeyCode == Enum.KeyCode.G)) then
+						getNearPlayer(99);
+						for i, v in pairs(plrlist) do
+							if (v == player) then
+							else
+								spawn(function()
+									v.Head.Neck:Destroy();
+									plrlist = {};
+									wait(0.2);
+									spawn(function()
+										pcall(function()
+											game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+										end);
+									end);
+								end);
+							end
+						end
+					end
+				end
+				UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+					if (not gameProcessedEvent and (input.UserInputType == Enum.UserInputType.Keyboard) and (input.KeyCode == Enum.KeyCode.H)) then
+						if (_G.TelekinesisCarry == false) then
+							getNearPlayer(99);
+							_G.TelekinesisCarry = true;
+							_G.Carry = true;
+							local telekinesisRange = 10
+                            local rotationSpeed = 0.9
+							while _G.Carry do
+								spawn(function()
+									for i, v in pairs(plrlist) do
+										if (v == LocalPlayer) then
+										else
+											spawn(function()		
+                                                	local localCharacter = game.Players.LocalPlayer.Character;
+
+                                                    if localCharacter then
+                                                        rotationAngle = rotationAngle + _G.Rotationspeed;
+                                                        for i, v in pairs(plrlist) do
+                                                          local angle = rotationAngle + (i * 10);
+                                                          local c = math.cos(angle);
+                                                          local s = math.sin(angle);
+                                                          local position = (localCharacter.HumanoidRootPart.CFrame * CFrame.new(_G.Rotationrange * c, 8, _G.Rotationrange * s)).Position;
+                                                          movePlayerWithTelekinesis(position, v.Name);
+                                                        end
+                                                    end
+											end);
+										end
+									end
+								end);
+								wait();
+							end
+						else
+							plrlist = {};
+							_G.Carry = false;
+							_G.TelekinesisCarry = false;
+						end
+					end
+				end);
+				UserInputService.InputBegan:Connect(Metalskin);
+				UserInputService.InputBegan:Connect(Telekinesis);
+				UserInputService.InputBegan:Connect(ReleaseTelekinesis);
+				UserInputService.InputBegan:Connect(TelekinesisKill);
+				UserInputService.InputBegan:Connect(TelekinesisCarry);
+				local Farms = window:Tab("Autofarm Menu");
+				local Target = window:Tab("Player Menu");
+				local Self = window:Tab("Self Menu");
+				local Teleport = window:Tab("Teleport Menu");
+				local Keybinds = window:Tab("Keybind Menu");
+				local Misc = window:Tab("Misc Menu");
+				local cred = window:Tab("By DilapidatedSage");
+				Farms:Toggle("Autofarm Orbs", function(t)
+					if (t == true) then
+						getgenv().Orbfarm = true;
+						while Orbfarm do
+							spawn(function()
+								local character = game.Players:FindFirstChild(LocalPlayer.Name).Character;
+								for i, v in pairs(game:GetService("Workspace").ExperienceOrbs:GetChildren()) do
+									local hrp = character.HumanoidRootPart;
+									v.CFrame = hrp.CFrame;
+								end
+							end);
+							wait();
+						end
+					else
+						getgenv().Orbfarm = false;
+					end
+				end);
+				Farms:Toggle("Farm Civilian", function(t)
+					if (t == true) then
+						getgenv().Civilian = true;
+						_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+						wait(0.05);
+						local lastPunchTime = 0;
+						while Civilian do
+							wait(0.5);
+							breakvelocity();
+							pcall(function()
+								local currentTime = tick();
+								if ((currentTime - lastPunchTime) >= 0.5) then
+									lastPunchTime = currentTime;
+									local targetCivilian = nil;
+									local closestDistance = math.huge;
+									for _, v in pairs(workspace:GetChildren()) do
+										if (v:IsA("Model") and (v.Name == "Civilian")) then
+											local humanoid = v:FindFirstChild("Humanoid");
+											if (humanoid and (humanoid.Health > 0)) then
+												local distance = (v.HumanoidRootPart.Position - LocalPlayer.Character.HumanoidRootPart.Position).Magnitude;
+												if (distance < closestDistance) then
+													closestDistance = distance;
+													targetCivilian = v;
+												end
+											end
+										end
+									end
+									if targetCivilian then
+										local targetPosition = targetCivilian.HumanoidRootPart.Position + Vector3.new(0, 0, 1);
+										LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition);
+										wait(0.1);
+										local targetHumanoid = targetCivilian:FindFirstChild("Humanoid");
+										if (targetHumanoid and (targetHumanoid.Health > 0)) then
+											game.ReplicatedStorage.Events.Punch:FireServer(0, 0.1, 1);
+										end
+									end
+								end
+							end);
+						end
+					else
+						wait(1);
+						getgenv().Civilian = false;
+						LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+					end
+				end);
+				Farms:Toggle("Farm Police", function(t)
+					if (t == true) then
+						getgenv().Police = true;
+						_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+						wait(0.05);
+						local lastPunchTime = 0;
+						while Police do
+							wait(0.5);
+							breakvelocity();
+							pcall(function()
+								local currentTime = tick();
+								if ((currentTime - lastPunchTime) >= 0.5) then
+									lastPunchTime = currentTime;
+									local targetPolice = nil;
+									local closestDistance = math.huge;
+									for _, v in pairs(workspace:GetChildren()) do
+										if (v:IsA("Model") and (v.Name == "Police")) then
+											local humanoid = v:FindFirstChild("Humanoid");
+											if (humanoid and (humanoid.Health > 0)) then
+												local distance = (v.HumanoidRootPart.Position - LocalPlayer.Character.HumanoidRootPart.Position).Magnitude;
+												if (distance < closestDistance) then
+													closestDistance = distance;
+													targetPolice = v;
+												end
+											end
+										end
+									end
+									if targetPolice then
+										local targetPosition = targetPolice.HumanoidRootPart.Position + Vector3.new(0, 0, 1);
+										LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition);
+										wait(0.1);
+										local targetHumanoid = targetPolice:FindFirstChild("Humanoid");
+										if (targetHumanoid and (targetHumanoid.Health > 0)) then
+											game.ReplicatedStorage.Events.Punch:FireServer(0, 0.1, 1);
+										end
+									end
+								end
+							end);
+						end
+					else
+						wait(1);
+						getgenv().Police = false;
+						LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+					end
+				end);
+				Farms:Toggle("Farm Thug", function(t)
+					if (t == true) then
+						getgenv().Thug = true;
+						_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+						wait(0.05);
+						local lastPunchTime = 0;
+						while Thug do
+							wait(0.5);
+							breakvelocity();
+							pcall(function()
+								local currentTime = tick();
+								if ((currentTime - lastPunchTime) >= 0.5) then
+									lastPunchTime = currentTime;
+									local targetThug = nil;
+									local closestDistance = math.huge;
+									for _, v in pairs(workspace:GetChildren()) do
+										if (v:IsA("Model") and (v.Name == "Thug")) then
+											local humanoid = v:FindFirstChild("Humanoid");
+											if (humanoid and (humanoid.Health > 0)) then
+												local distance = (v.HumanoidRootPart.Position - LocalPlayer.Character.HumanoidRootPart.Position).Magnitude;
+												if (distance < closestDistance) then
+													closestDistance = distance;
+													targetThug = v;
+												end
+											end
+										end
+									end
+									if targetThug then
+										local targetPosition = targetThug.HumanoidRootPart.Position + Vector3.new(0, 0, 1);
+										LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPosition);
+										wait(0.1);
+										local targetHumanoid = targetThug:FindFirstChild("Humanoid");
+										if (targetHumanoid and (targetHumanoid.Health > 0)) then
+											game.ReplicatedStorage.Events.Punch:FireServer(0, 0.1, 1);
+										end
+									end
+								end
+							end);
+						end
+					else
+						wait(1);
+						getgenv().Thug = false;
+						LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+					end
+				end);
+				local targetBox = Target:Textbox("Select Player", true, function(va)
+					setTarget(va);
+					table.insert(AntiTelePlayers, _G.selectedPlayer)
+				end);
+				Target:Button("Goto Player", function()
+					local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+					p1.CFrame = game.Players[_G.selectedPlayer].Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+				end);
+				
+				Target:Toggle("Kill Player", function(t)
+					if (t == true) then
+						_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+						local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+						local pos = p1.CFrame;
+						game:GetService("ReplicatedStorage").Events.Transform:FireServer("metalSkin", true);
+						getgenv().breakv = true;
+						getgenv().killplr = true;
+						spawn(function()
+							while breakv do
+								local LookVector = game.Workspace.Camera.CFrame.LookVector;
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(LookVector, true);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(LookVector, false);
+								breakvelocity();
+								wait(1);
+							end
+						end);
+						spawn(function()
+							while killplr do
+								spawn(function()
+									pcall(function()
+										for i, v in pairs(game.Workspace:GetChildren()) do
+											if ((v.Name == _G.selectedPlayer) and v:FindFirstChild("Humanoid") and (v.Humanoid.Health > 0)) then
+												game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1);
+											end
+										end
+									end);
+								end);
+								spawn(function()
+									for i = 1, 5 do
+										game:GetService("ReplicatedStorage").Events.Punch:FireServer(0, 0.1, 1);
+									end
+								end);
+								wait(0.08);
+							end
+						end);
+					else
+						getgenv().breakv = false;
+						getgenv().killplr = false;
+						wait(0.1);
+						breakvelocity();
+						LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+					end
+				end);
+				Target:Toggle("Spectate Player", function(t)
+					if (t == true) then
+						getgenv().Spectate = true;
+						while Spectate do
+							pcall(function()
+								viewing = game.Players[_G.selectedPlayer];
+								workspace.CurrentCamera.CameraSubject = viewing.Character;
+							end);
+							wait();
+						end
+					else
+						getgenv().Spectate = false;
+						wait(0.1);
+						viewing = game.Players.LocalPlayer;
+						workspace.CurrentCamera.CameraSubject = viewing.Character;
+					end
+				end);
+				Target:Toggle("Loop Goto", function(t)
+					if (t == true) then
+						_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+						local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+						local pos = p1.CFrame;
+						getgenv().breakv = true;
+						getgenv().loopgoto = true;
+						spawn(function()
+							while breakv do
+								breakvelocity();
+								wait(1);
+							end
+						end);
+						spawn(function()
+							while loopgoto do
+								wait(0.05);
+								spawn(function()
+									pcall(function()
+										for i, v in pairs(game.Workspace:GetChildren()) do
+											if ((v.Name == _G.selectedPlayer) and v:FindFirstChild("Humanoid") and (v.Humanoid.Health > 0)) then
+												game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3);
+											end
+										end
+									end);
+								end);
+							end
+						end);
+					else
+						getgenv().breakv = false;
+						getgenv().loopgoto = false;
+						wait(0.1);
+						breakvelocity();
+						LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+					end
+				end);
+				Target:Toggle("Fling Player", function(t)
+					if (t == true) then
+						_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+						local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart;
+						local pos = p1.CFrame;
+						getgenv().fling = true;
+						for _, child in pairs(LocalPlayer.Character:GetDescendants()) do
+							if child:IsA("BasePart") then
+								child.CustomPhysicalProperties = PhysicalProperties.new(math.huge, 0.3, 0.5);
+							end
+						end
+						local bambam = Instance.new("BodyAngularVelocity");
+						bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart;
+						bambam.AngularVelocity = Vector3.new(0, 1000, 0);
+						bambam.MaxTorque = Vector3.new(0, math.huge, 0);
+						local Char = LocalPlayer.Character:GetChildren();
+						for i, v in next, Char do
+							if v:IsA("BasePart") then
+								v.CanCollide = false;
+								v.Massless = true;
+								v.Velocity = Vector3.new(0, 0, 0);
+							end
+						end
+						while fling do
+							spawn(function()
+								pcall(function()
+									for i, v in pairs(game.Workspace:GetChildren()) do
+										if ((v.Name == _G.selectedPlayer) and v:FindFirstChild("Humanoid") and (v.Humanoid.Health > 0)) then
+											game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0);
+										end
+									end
+								end);
+							end);
+							spawn(function()
+								pcall(function()
+									local PrimaryPart = LocalPlayer.Character.PrimaryPart;
+									if ((PrimaryPart.AssemblyLinearVelocity.Magnitude > 250) or (PrimaryPart.AssemblyAngularVelocity.Magnitude > 250)) then
+										PrimaryPart.AssemblyAngularVelocity = Vector3.new(0, 0, 0);
+										PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0);
+										PrimaryPart.CFrame = LastPosition;
+									elseif ((PrimaryPart.AssemblyLinearVelocity.Magnitude < 50) or (PrimaryPart.AssemblyAngularVelocity.Magnitude > 50)) then
+										LastPosition = PrimaryPart.CFrame;
+									end
+								end);
+							end);
+							wait();
+						end
+					else
+						getgenv().fling = false;
+						wait(0.1);
+						local playerChar = LocalPlayer.Character;
+						if (not playerChar or not getRoot(playerChar)) then
+							return;
+						end
+						for i, v in pairs(getRoot(playerChar):GetChildren()) do
+							if (v.ClassName == "BodyAngularVelocity") then
+								v:Destroy();
+							end
+						end
+						for _, child in pairs(playerChar:GetDescendants()) do
+							if ((child.ClassName == "Part") or (child.ClassName == "MeshPart")) then
+								child.CustomPhysicalProperties = PhysicalProperties.new(0.7, 0.3, 0.5);
+							end
+						end
+						breakvelocity();
+						LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+					end
+				end);
+				Target:Toggle("Laser", function(t)
+					if (t == true) then
+						getgenv().Laser = true;
+						local event = game:GetService("ReplicatedStorage").Events.ToggleLaserVision;
+						local part = event:InvokeServer(true);
+						while Laser and part and _G.selectedPlayer do
+							wait();
+							local target = game.Players:FindFirstChild(_G.selectedPlayer);
+							if (target and target.Character and target.Character:FindFirstChild("HumanoidRootPart")) then
+								part.Position = target.Character.HumanoidRootPart.Position;
+							end
+						end
+						event:InvokeServer(false);
+					else
+						getgenv().Laser = false;
+					end
+				end);
+				
+				Target:Slider("Gyro Speed", 0, 1000, 200, function(t)
+					_G.gyrospeed = t;
+				end);
+				Target:Button("Remove Gyro", function() 
+					game:GetService("Workspace")[_G.selectedPlayer].Humanoid.WalkSpeed = _G.gyrospeed;
+					game:GetService("Workspace")[_G.selectedPlayer].Humanoid.JumpPower = _G.gyrospeed / 3;
+					game:GetService("Workspace")[_G.selectedPlayer].HumanoidRootPart.telekinesisGyro:Destroy();
+					game:GetService("Workspace")[_G.selectedPlayer].HumanoidRootPart.telekinesisPosition:Destroy();
+					game:GetService("Workspace")[_G.selectedPlayer].Humanoid.PlatformStand = false;
+				end);
+				Self:Slider("Rapid Slider", 0, 100, 10, function(t)
+					_G.Rapidvalue = t;
+				end);
+				Self:Toggle("Heavy Punch", function(t)
+					if (t == true) then
+						_G.Punchval = 0.4;
+					else
+						_G.Punchval = 0.1;
+					end
+				end);
+				Self:Toggle("Rapid Punch", function(t)
+					if (t == true) then
+						getgenv().rapid = true;
+						local function onInputEnded(inputObject, gameProcessedEvent)
+							if gameProcessedEvent then
+								return;
+							end
+							if (rapid == true) then
+								if (inputObject.UserInputType == Enum.UserInputType.MouseButton1) then
+									pcall(function()
+										for i = 1, _G.Rapidvalue do
+											game:GetService("ReplicatedStorage").Events.Punch:FireServer(_G.Punchval, 0.1, 1);
+										end
+									end);
+								end
+							end
+						end
+						UserInputService.InputEnded:Connect(onInputEnded);
+					else
+						getgenv().rapid = false;
+					end
+				end);
+				Self:Toggle("Spawn Point", function(t)
+					if (t == true) then
+						getgenv().spawnin = true;
+						_G.OriginalPosition = LocalPlayer.Character.HumanoidRootPart.Position;
+						LocalPlayer.CharacterAdded:Connect(function(character)
+							if (spawnin == true) then
+								wait(0.1);
+								character.HumanoidRootPart.CFrame = CFrame.new(_G.OriginalPosition);
+							end
+						end);
+					else
+						getgenv().spawnin = false;
+					end
+				end);
+				Self:Toggle("Auto MetalSkin", function(t)
+					if (t == true) then
+						getgenv().AutoMetal = true;
+						while AutoMetal do
+							spawn(function()
+								game:GetService("ReplicatedStorage").Events.Transform:FireServer("metalSkin", true);
+							end);
+							wait(0.2);
+						end
+					else
+						getgenv().AutoMetal = false;
+					end
+				end);
+				Self:Toggle("Kill Aura", function(t)
+                    if t == true then
+                        getgenv().killaura = true
+                
+                        while killaura do
+                            pcall(function()
+                                local LocalPlayer = game.Players.LocalPlayer
+                                local LocalRootPart = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                                local localPosition = LocalRootPart and LocalRootPart.Position
+                
+                                if localPosition then
+                                    for _, player in ipairs(game.Players:GetPlayers()) do
+                                        if player ~= LocalPlayer then
+                                            local playerCharacter = player.Character
+                                            if playerCharacter then
+                                                local playerRootPart = playerCharacter:FindFirstChild("HumanoidRootPart")
+                                                if playerRootPart then
+                                                    local playerPosition = playerRootPart.Position
+                                                    local distance = (localPosition - playerPosition).Magnitude
+                                                    
+                                                    if distance <= 8 then
+                                                        game:GetService("ReplicatedStorage").Events.Punch:FireServer(0, 0.1, 1)
+														
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end)
+                            
+                            wait()
+                        end
+                    else
+                        getgenv().killaura = false
+                    end
+                end)
+				Self:Toggle("Sheild Aura", function(t)
+                if t == true then
+                    getgenv().Sheildaura = true
+            
+                    while Sheildaura do
+                        pcall(function()
+                            local LocalPlayer = game.Players.LocalPlayer
+                            local LocalRootPart = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                            local localPosition = LocalRootPart and LocalRootPart.Position
+            
+                            if localPosition then
+                                for _, player in ipairs(game.Players:GetPlayers()) do
+                                    if player ~= LocalPlayer then
+                                        local playerCharacter = player.Character
+                                        if playerCharacter then
+                                            local playerRootPart = playerCharacter:FindFirstChild("HumanoidRootPart")
+                                            if playerRootPart then
+                                                local playerPosition = playerRootPart.Position
+                                                local distance = (localPosition - playerPosition).Magnitude
+            
+                                                if distance <= 20 then
+                                                    local forceField = LocalPlayer.Character:FindFirstChild("ForceField")
+                                                    if forceField then
+                                                        
+													else
+													game:GetService("ReplicatedStorage").Events.ToggleBlocking:FireServer("true");
+                                                    end
+                                                end
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end)
+            
+                        wait()
+                    end
+                else
+                    getgenv().Sheildaura = false
+					game:GetService("ReplicatedStorage").Events.ToggleBlocking:FireServer(false);
+                end
+            end)
+				Self:Toggle("ESP", function(t)
+					if (t == true) then
+						getgenv().ESP = true;
+						ESPON();
+					else
+						getgenv().ESP = false;
+						ESPOFF();
+					end
+				end);
+				Self:Toggle("Antitelekinesis", function(t)
+					if (t == true) then
+						getgenv().Anti = true;
+						while Anti do
+							spawn(function()
+								pcall(function()
+									game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[LocalPlayer.Name].Character);
+								end);
+							end);
+							wait();
+						end
+					else
+						getgenv().Anti = false;
+					end
+				end);
+				Self:Toggle("Safe Teleport", function(t)
+					if (t == true) then
+						local player1 = game.Players.LocalPlayer.Character.Humanoid.Health;
+						local math = player1 / 3;
+						getgenv().safeteleport = true;
+						while safeteleport do
+							wait();
+							pcall(function()
+								local player = game.Players.LocalPlayer.Character.Humanoid.Health;
+								if (player < math) then
+									game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[LocalPlayer.Name].Character);
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1368.27539, 195.429108, 195.75, 0, 0, -1, 0, 1, 0, 1, 0, 0);
+								end
+							end);
+						end
+					else
+						getgenv().safeteleport = false;
+					end
+				end);
+				Misc:Slider("Speed", 16, 2500, 16, function(t)
+					_G.speed = t;
+				end);
+				Misc:Slider("Jump", 50, 500, 50, function(t)
+					_G.jump = t;
+				end);
+				Misc:Toggle("Apply Settings", function(t)
+					if (t == true) then
+						getgenv().settingsenabled = true;
+						while settingsenabled do
+							pcall(function()
+								game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = _G.speed;
+								game.Players.LocalPlayer.Character.Humanoid.JumpPower = _G.jump;
+							end);
+							wait(0.2);
+						end
+					else
+						getgenv().settingsenabled = false;
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16;
+						game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50;
+					end
+				end);
+				Misc:Toggle("Toggle Infinite Jump", function(t)
+					if (t == true) then
+						getgenv().IJ = true;
+						game:GetService("UserInputService").JumpRequest:connect(function()
+							if (IJ == true) then
+								game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping");
+							end
+						end);
+					else
+						getgenv().IJ = false;
+					end
+				end);
+				Misc:Toggle("Toggle Noclip buildings", function(t)
+                    if t == true then
+                        local transparencyValue = 0.3;
+                
+                        local function modifyObject(object)
+                            if object then
+                                object.CanCollide = false;
+                                object.Transparency = transparencyValue;
+                                object.CanTouch = false;
+                            end
+                        end
+                        
+                        local function modifyModel(model)
+                            for _, part in ipairs(model:GetDescendants()) do
+                                if part:IsA("BasePart") then
+                                    modifyObject(part);
+                                end
+                            end
+                        end
+                        
+                        local buildings = game:GetService("Workspace").City.Buildings;
+                        local bank = game:GetService("Workspace").City.Interactive.Bank.Model;
+                        local policeStation = game:GetService("Workspace").City.Interactive["Police Station"]:GetChildren()[28];
+                        local warehouse = game:GetService("Workspace").City.Interactive.Grove.WareHouse;
+                        local mainPlaza = game:GetService("Workspace").City.Interactive["Main Plaza"]:GetChildren()[38];
+                        local safeZones = game:GetService("Workspace").SafeZones:GetChildren();
+                        
+                        modifyModel(buildings);
+                        modifyModel(bank);
+                        modifyObject(policeStation);
+                        modifyModel(warehouse);
+                        modifyObject(mainPlaza);
+                        for _, barrier in ipairs(safeZones) do
+                            modifyObject(barrier);
+                        end
+                    else
+                        local function resetObject(object)
+                            if object then
+                                object.CanCollide = true;
+                                object.Transparency = 0;
+                                object.CanTouch = true;
+                            end
+                        end
+                        
+                        local function resetModel(model)
+                            for _, part in ipairs(model:GetDescendants()) do
+                                if part:IsA("BasePart") then
+                                    resetObject(part);
+                                end
+                            end
+                        end
+                        
+                        local buildings = game:GetService("Workspace").City.Buildings;
+                        local bank = game:GetService("Workspace").City.Interactive.Bank.Model;
+                        local policeStation = game:GetService("Workspace").City.Interactive["Police Station"]:GetChildren()[28];
+                        local warehouse = game:GetService("Workspace").City.Interactive.Grove.WareHouse;
+                        local mainPlaza = game:GetService("Workspace").City.Interactive["Main Plaza"]:GetChildren()[38];
+                        local safeZones = game:GetService("Workspace").SafeZones:GetChildren();
+                        
+                        resetModel(buildings);
+                        resetModel(bank);
+                        resetObject(policeStation);
+                        resetModel(warehouse);
+                        resetObject(mainPlaza);
+                        for _, barrier in ipairs(safeZones) do
+                            resetObject(barrier);
+                        end
+                    end
+                end);
+
+				Misc:Toggle("AntiCrash", function(t)
+					if (t == true) then
+						game:GetService("ReplicatedStorage").Effects.Shield.Name = "Shields";
+					else
+						game:GetService("ReplicatedStorage").Effects.Shields.Name = "Shield";
+					end
+				end);
+				Misc:Button("Ground Crack Lag", function()
+					for i = 1, 1000 do
+						game:GetService("ReplicatedStorage").Events.GroundCrack:FireServer();
+					end
+				end);
+				Misc:Button("Mini Crash", function()
+					for i = 1, 5000 do
+						game:GetService("ReplicatedStorage").Events.ToggleBlocking:FireServer("true");
+					end
+					game:GetService("ReplicatedStorage").Events.ToggleBlocking:FireServer(false);
+				end);
+				Misc:Button("Server Crash", function()
+					for i = 1, 25000 do
+						game:GetService("ReplicatedStorage").Events.ToggleBlocking:FireServer("true");
+					end
+					game:GetService("ReplicatedStorage").Events.ToggleBlocking:FireServer(false);
+				end);
+				Misc:Toggle("Disable Telekinesis", function(t)
+					if (t == true) then
+						Players = game:GetService("Players");
+						for i, player in pairs(Players:GetPlayers()) do
+							getgenv().Disable = true;
+							spawn(function()
+								pcall(function()
+									while Disable do
+										wait();
+										game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[player.Name].Character);
+									end
+								end);
+							end);
+						end
+					else
+						getgenv().Disable = false;
+					end
+				end);
+				Misc:Toggle("Give Orbs", function(t)
+					if (t == true) then
+					    getNearPlayer(99);
+						getgenv().Giveorbs = true;
+						while Giveorbs do
+						for i, v in pairs(plrlist) do
+						    local character = game.Players:FindFirstChild(v.Name).Character;
+							for i, v in pairs(game:GetService("Workspace").ExperienceOrbs:GetChildren()) do
+								local hrp = character.HumanoidRootPart;
+								v.CFrame = hrp.CFrame;
+							end				
+							end
+							wait();
+						end
+					else
+					    plrlist = {};
+						getgenv().Giveorbs = false;
+					end
+				end);
+				Misc:Label("\\/ AutoStats \\/");
+				Misc:Slider("Points", 0, 1000, 0, function(t)
+					_G.Point = t;
+				end);
+				Misc:Dropdown("Select Stat", {"vitality","healing","strength","energy","flight","speed","climbing","swinging","fireball","frost","lightning","power","telekinesis","shield","laserVision","metalSkin"}, function(t)
+					_G.Stat = t;
+				end);
+				Misc:Button("Apply Stats", function()
+					for i = 1, _G.Point do
+						spawn(function()
+							game:GetService("ReplicatedStorage").Events.UpgradeAbility:InvokeServer(_G.Stat);
+						end);
+					end
+				end);
+				Keybinds:Slider("Rotation Speed", 0, 100, 50, function(t)
+					if t <= 25 then
+                        _G.Rotationspeed = 0.05
+                        _G.Rotationrange = 10
+                    elseif t <= 50  then
+                        _G.Rotationspeed = 0.10
+                        _G.Rotationrange = 25
+                    elseif t <= 75  then
+                        _G.Rotationspeed = 0.30
+                        _G.Rotationrange = 40
+                    elseif t <= 100  then
+                        _G.Rotationspeed = 0.50
+                        _G.Rotationrange = 65
+					elseif t == 100  then
+                        _G.Rotationspeed = 0.80
+                        _G.Rotationrange = 90
+                    end					
+                end)
+				Keybinds:Label("Carry Player - Keybind: H");
+				Keybinds:Label("Release Telekinesis - Keybind: C");
+				Keybinds:Label("Telekinesis - Keybind: T");
+				Keybinds:Label("MetalSkin - Keybind: R");
+				Keybinds:Label("Telekinesis Kill - Keybind: G");
+				Keybinds:Label("Toggle UI - Keybind: F6");
+				Teleport:Dropdown("Safezone Locations", {"Bar","Building Park","City Square","Evil Lair","Feild","Hero HQ","Hero Lair","Motel","Mountain","Mountain-2","Park","Plains","Prison"}, function(t)
+					_G.SelectedLocation = t;
+				end);
+				Teleport:Dropdown("Other Locations", {"Contruction Building","Corner-1","Corner-2","Corner-3","Corner-4","Ignite Tower","Military Base","Mountain Hole","Police Department","Cave"}, function(t)
+					_G.SelectedLocation = t;
+				end);
+				Teleport:Dropdown("Unfortunate Locations", {"Unfortunate Spot (Secret Area)","Unfortunate Spot (Trap)","Unfortunate Spot (Space)","Unfortunate Spot (Under Map)","Unfortunate Spot (Dead End)","Unfortunate Spot (Box)","Unfortunate Spot (Arena)","Unfortunate Spot (Backrooms)","Unfortunate Spot (Sex Dungeon)","Private Helioso"}, function(t)
+					_G.SelectedLocation = t;
+				end);
+				Teleport:Toggle("Teleport Player", function(t)
+					if (t == true) then
+						_G.bring = true;
+					else
+						_G.bring = false;
+					end
+				end);
+				Teleport:Button("Teleport", function()
+					getNearPlayer(99);
+					if (_G.SelectedLocation == "Bar") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1313, 197, 149);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1313, 197, 149);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Building Park") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1751, 442, 1266);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1751, 442, 1266);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "City Square") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-385, 86, 256);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-385, 86, 256);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Evil Lair") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-905, 94, -1086);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-905, 94, -1086);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Feild") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(2355, 81, 4);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2355, 81, 4);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Hero HQ") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(259, 169, 2748);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259, 169, 2748);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Hero Lair") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(2351, 39, -1855);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2351, 39, -1855);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Motel") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1750, 94, -1349);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1750, 94, -1349);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Mountain") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-2206, 817, -2425);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2206, 817, -2425);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Mountain-2") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-2429, 762, -2363);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2429, 762, -2363);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Park") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(1399, 94, 1154);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1399, 94, 1154);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Plains") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-3683, 97, -144);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3683, 97, -144);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Prison") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-779, 269, -2594);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-779, 269, -2594);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Contruction Building") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(650, 779, 284);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(650, 779, 284);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Corner-1") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(2773, 96, -4996);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2773, 96, -4996);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Corner-2") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-3757, 97, -3801);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3757, 97, -3801);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Corner-3") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-3650, 97, 2764);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3650, 97, 2764);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Corner-4") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(2810, 102, 2821);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2810, 102, 2821);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Ignite Tower") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-70, 616, -247);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-70, 616, -247);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Military Base") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(259, 99, -4639);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259, 99, -4639);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Mountain Hole") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-2732, 256, -1776);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2732, 256, -1776);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Police Department") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-62, 94, -480);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-62, 94, -480);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Cave") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(269, -59, 2729);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(269, -59, 2729);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Secret Area)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1100, 61, -1169);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1100, 61, -1169);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Trap)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-790, 135, -2769);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-790, 135, -2769);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Space)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(0, 9999999, 0);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 9999999, 0);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Under Map)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(0, 0, 0);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 0, 0);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Dead End)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(1453, 98, -2506);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1453, 98, -2506);
+							breakvelocity();
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Box)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1695, 94, -1309);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1695, 94, -1309);
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Arena)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1728, 94, -1188);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1728, 94, -1188);
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Backrooms)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1519, 95, -1072);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1519, 95, -1072);
+						end
+					elseif (_G.SelectedLocation == "Unfortunate Spot (Sex Dungeon)") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.telekinesisPosition:Destroy();
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(-1585, 95, -1159);
+								wait(0.2);
+								game:GetService("ReplicatedStorage").Events.ToggleTelekinesis:InvokeServer(Vector3.new(1, 1, 1), false, game.Players[v.Name].Character);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1585, 95, -1159);
+						end
+					elseif (_G.SelectedLocation == "Private Helioso Spot") then
+						if (_G.bring == true) then
+							for i, v in pairs(plrlist) do
+								game:GetService("Workspace")[v.Name].HumanoidRootPart.CFrame = CFrame.new(20000,10,0);
+							end
+						else
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(20000,10,0)  
+						end
+					end
+					if (_G.bring == true) then
+					    plrlist = {};
+					end
+				end);
+				Farms:Label("Made By DilapidatedSage");
+				Target:Label("Made By DilapidatedSage");
+				Self:Label("Made By DilapidatedSage");
+				Teleport:Label("Made By DilapidatedSage");
+				Keybinds:Label("Made By DilapidatedSage");
+				Misc:Label("Made By DilapidatedSage");
+				cred:Label("Made By DilapidatedSage");
+			end
+		end
+	end);
+	Key:Button("Copy Key Link", function()
+		toClipboard(getkey);
+	end);
+	Key:Button("Copy Discord Link", function()
+		toClipboard(disc);
+	end);
+	Key:Label("Made By DilapidatedSage");
+end
